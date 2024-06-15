@@ -1,30 +1,33 @@
 /**
- * CreateGroupForm.js
- * This component is for adding groups
+ * CreateGameForm.js
+ * This component is for adding games
  */
 
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
-import { addDocument } from '../queries';
+import { addDocument, setDocument } from '../proxies/queries';
 import { useAuth } from '../contexts/AuthContext';
+import { getDeck } from '../api_services/deckQueries';
 
-export const CreateGroupForm = () => {
+export const CreateGameForm = () => {
     const { uid } = useAuth();
-    const [groupName, setGroupName] = useState('');
+    const [gameName, setGameName] = useState('');
     const [error, setError] = useState('');
     const [isLoading, setIsLoading] = useState(false);
 
     const handleSubmit = async (e) => {
         setError('');
         e.preventDefault();
-        if (groupName === '') {
-            setError('Please enter a group name.');
+        if (gameName === '') {
+            setError('Please enter a game name.');
             return;
         }
         try {
             setIsLoading(true);
-            await addDocument(['groups'], { name: groupName, members: [uid] });
-            setGroupName('');
+            const deck = await getDeck();
+            const gameId = await addDocument(['games'], { name: gameName, deckId: deck.deck_id, phase: 0 });
+            await setDocument(['games', gameId, 'players', uid ], {});
+            setGameName('');
         } catch (err) {
             setError('An error occurred. Please try again.');
         } finally {
@@ -33,20 +36,20 @@ export const CreateGroupForm = () => {
     };
 
     return (
-        <Form onSubmit={handleSubmit} className='groups-form'>
+        <Form onSubmit={handleSubmit} className='games-form'>
             
-            <Form.Group controlId="formGroupName">
+            <Form.Group controlId="formGameName">
                 <Form.Control
                     type="text"
-                    placeholder="Enter group name"
-                    value={groupName}
+                    placeholder="Enter game name"
+                    value={gameName}
                     onFocus={() => setError('')}
-                    onChange={(e) => setGroupName(e.target.value)}
+                    onChange={(e) => setGameName(e.target.value)}
                     isInvalid={error !== ''}
                 />
             </Form.Group>
             <Button variant="primary" type="submit" disabled={isLoading}>
-                {isLoading ? 'Creating Group' : 'Create Group'}
+                {isLoading ? 'Creating Game' : 'Create Game'}
             </Button>
         </Form>
     );
