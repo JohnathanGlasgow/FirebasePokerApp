@@ -1,56 +1,56 @@
 /**
- * GroupListItem.js
- * This component is for managing groups
+ * GameListItem.js
+ * This component is for managing games
  */
 
 import React, { useState, useContext, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext';
-import { subscribeToCollection } from '../queries';
+import { useAuth } from '../contexts/AuthContext.js';
+import { subscribeToCollection } from '../proxies/queries.js';
 import { useNavigate } from 'react-router-dom';
 import { Card, Button, Alert, Collapse } from 'react-bootstrap';
-import { GroupListItem } from './GroupListItem';
-import { CreateGroupForm } from './CreateGroupForm'; 
+import { GameListItem } from './GameListItem.js';
+import { CreateGameForm } from './CreateGameForm.js'; 
 import LoadingSpinner from './LoadingSpinner.js';   
 
-export default function GroupsCard() {
+export default function GamesCard() {
     const navigate = useNavigate();
     const { user, uid } = useAuth();
-    const { groupId } = useParams();
-    const [groups, setGroups] = useState([]);
+    const { gameId } = useParams();
+    const [games, setGames] = useState([]);
     const [error, setError] = useState('');
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(true);
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         try {
-            console.log("Getting groups...");
+            console.log("Getting games...");
             setIsLoading(true);
-            return subscribeToCollection(['groups'], handleSnapshot);
+            return subscribeToCollection(['games'], handleSnapshot);
         }
         catch (error) {
-            console.error("Error getting groups: ", error);
+            console.error("Error getting games: ", error);
             setError("An error occurred. Please try again.");
         }
         finally {
-            console.log("Done getting groups.");
+            console.log("Done getting games.");
             setIsLoading(false);
         }
     }, []);
 
     const handleSnapshot = (snapshot) => {
-        const groups = snapshot.docs.map((doc) => {
+        const games = snapshot.docs.map((doc) => {
             return { id: doc.id, ...doc.data() };
         });
-        setGroups(groups);
+        setGames(games);
         setIsLoading(false);
     }
 
     return (
-        <Card className='group-card'>
+        <Card className='game-card'>
             <LoadingSpinner show={isLoading} />
             <Card.Body>
-                <Card.Title>Groups
+                <Card.Title>Games
                     <Button
                         onClick={() => setOpen(!open)}
                         aria-controls="example-collapse-text"
@@ -62,25 +62,25 @@ export default function GroupsCard() {
                     </Button>
                 </Card.Title>
                 <Collapse in={open}>
-                    <div id="group-collapse">
-                        <Card.Text>Create a new group:</Card.Text>
-                        <CreateGroupForm />
+                    <div id="game-collapse">
+                        <Card.Subtitle>Create a new game:</Card.Subtitle>
+                        <CreateGameForm />
                         {error && <Alert variant="danger">{error}</Alert>}
-                        {!groups ?
+                        {!games ?
                             ''
                             :
                             <>
-                                <Card.Text>Available Groups <span style={{fontStyle: 'italic'}}>(click the name to navigate to the group page)</span>:</Card.Text>
-                                <ul className='groups-list'>
+                                <Card.Subtitle>Available Games <span style={{fontStyle: 'italic'}}>(click the name to navigate to the game page)</span>:</Card.Subtitle>
+                                <ul className='games-list'>
                                     {
-                                        groups.map((group) => (
-                                            <GroupListItem key={group.id} group={group}  />
+                                        games.map((game) => (
+                                            <GameListItem key={game.id} game={game}  />
                                         ))
                                     }
                                 </ul>
                             </>
                         }
-                        {groupId && <p onClick={() => navigate(`/user/${user.uid}`)} style={{ cursor: 'pointer', color: 'white', textDecoration: 'underline', fontStyle: 'italic'}}>Back to your todo list</p>}
+                        {gameId && <p onClick={() => navigate(`/user/${user.uid}`)} style={{ cursor: 'pointer', color: 'white', textDecoration: 'underline', fontStyle: 'italic'}}>Back to user page</p>}
                     </div>
 
                 </Collapse>
