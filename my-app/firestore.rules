@@ -7,17 +7,24 @@ service cloud.firestore {
       allow read, write: if request.auth != null && request.auth.uid == userId;
     }
     
-    // Match the groups collection
-    // allows all users to create and delete groups
-    match /groups/{groupId} {
+    // Match the games collection
+    // allows all users to create and delete games
+    match /games/{gameId} {
+      // Allow authenticated users to write
+      allow read, write: if request.auth != null;
+      }
+    
+    // Match the games/{gameId}/players collection
+    // allows all users to add themselves to the game
+    match /games/{gameId}/players/{playerId} {
       // Allow authenticated users to write
       allow read, write: if request.auth != null;
       }
 
-		// Match the groups todos subcollection
-    // A user's uid must be contained in the members field of the group to read/write
-    match /groups/{groupId}/todos/{todoId} {
-				allow read, write: if request.auth.uid in get(/databases/$(database)/documents/groups/$(groupId)).data.members;
+		// Match the games todos subcollection
+    // A user's uid must be contained in the members field of the game to read/write
+    match /games/{gameId}/todos/{todoId} {
+				allow read, write: if request.auth.uid in get(/databases/$(database)/documents/games/$(gameId)).data.members;
     }
     
   }
