@@ -154,31 +154,32 @@ input.todo-title {
     margin-bottom: 0px;
 }
 
-.group-card .card-body {
-    padding: 0px !important;
+.game-card .card-body {
+    padding: 10px !important;
     padding-left: 16px !important;
 }
 
-.groups-form {
+.games-form {
     display: flex;
     flex-direction: row !important;
     margin-bottom: 10px;
 }
 
-.groups-form .btn {
+.games-form .btn {
     margin-left: 10px !important;
+    margin-bottom: 10px;
 }
 
-.groups-li {
+.games-li {
     max-width: 500px;
     display: grid;
-    grid-template-columns: 1fr 1fr; 
+    grid-template-columns: 0.5fr 1fr 1fr; 
     gap: 10px;
     align-items: start; /* This aligns the grid items along the start of the block axis */
-    justify-content: space-evenly;
+
 }
 
-.groups-li .button-group {
+.games-li .button-group {
     display: grid;
     grid-template-columns: 1fr 1fr; 
     gap: 10px; /* This adds some space between the buttons */
@@ -193,4 +194,9 @@ input.todo-title {
 }
 .btn-link:hover {
     background-color: transparent !important;
+  }
+
+  .card-subtitle {
+    color: var(--secondary-text-color) !important;
+    margin-bottom: 10px !important;
   }
