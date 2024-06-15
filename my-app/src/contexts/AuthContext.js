@@ -5,8 +5,8 @@
  */
 
 import { createContext, useState, useEffect, useContext } from 'react';
-import { signInAnon, signOutUser, subscribeToAuth, signInWithEmail, signInWithGoogle } from '../firebaseAuth'; // import Firebase methods
-import { setDocument, deleteDocument } from '../queries';
+import { signInAnon, signOutUser, subscribeToAuth, signInWithEmail, signInWithGoogle } from '../proxies/firebaseAuth'; // import Firebase methods
+import { setDocument, deleteDocument } from '../proxies/queries';
 import { useNavigate } from 'react-router-dom';
 
 export const AuthContext = createContext();
