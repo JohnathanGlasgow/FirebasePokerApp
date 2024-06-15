@@ -1,11 +1,10 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
-import TodoList from './components/TodoList.js';
 import LoginModal from './components/auth/LoginModal';
 import UserCard from './components/auth/UserCard.js';
 import { Route, Routes, Navigate } from 'react-router-dom';
-import GroupsCard from './components/GroupsCard.js';
-import GroupPage from './components/GroupPage.js';
+import GamesCard from './components/GamesCard.js';
+import GamePage from './components/GameBoard.js';
 
 /**
  * App component for the application.
@@ -23,15 +22,15 @@ function App() {
         <Route path="/user/:userId" element={
           <>
             <UserCard />
-            <GroupsCard />
-            <TodoList />
+            <GamesCard />
+            {/* <TodoList /> */}
           </>
         } />
-        <Route path="/groups/:groupId" element={
+        <Route path="/games/:gameId" element={
           <>
             <UserCard />
-            <GroupsCard />
-            <GroupPage />
+            <GamesCard />
+            {/* <GamePage /> */}
           </>
         } />
       </Routes>
