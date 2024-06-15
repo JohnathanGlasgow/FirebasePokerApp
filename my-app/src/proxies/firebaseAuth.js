@@ -4,7 +4,7 @@
  */
 
 import { signInWithPopup, signInAnonymously, signOut, onAuthStateChanged, signInWithEmailAndPassword, GoogleAuthProvider } from 'firebase/auth';
-import { auth } from './firebase.js';
+import { auth } from '../firebase.js';
 
 
 /**

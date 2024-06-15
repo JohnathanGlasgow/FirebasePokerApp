@@ -4,7 +4,7 @@
  * The queries are used to fetch data from firebase.
  */
 import { collection, addDoc, deleteDoc, getDoc, doc, setDoc, onSnapshot } from "firebase/firestore";
-import { db } from "./firebase.js";
+import { db } from "../firebase.js";
 
 /**
  * This function will add a document to the specified collection or subcollection in the firestore database
@@ -17,6 +17,7 @@ export const addDocument = async (path, document) => {
         console.log(`Document added to to ${path.join('/')} with ID: ${docRef.id}`);
         // log the formatted path (good for testing rules in Firestore)
         //console.log(`${path.join('/')}/${docRef.id}`);
+        return docRef.id;
 
     } catch (error) {
         console.error(`Error adding document to ${path.join('/')}: `, error);
@@ -92,3 +93,19 @@ export const subscribeToCollection = (path, handleSnapshot) => {
 export const subscribeToDocument = (path, handleSnapshot) => {
     return onSnapshot(doc(db, ...path), handleSnapshot);
 }
+
+
+// function that looks up collection and returns an array of the document IDs
+export const getCollectionIds = async (path) => {
+    try {
+        const collectionRef = collection(db, ...path);
+        const collectionSnapshot = await collectionRef.get();
+        const collectionArray = collectionSnapshot.docs.map(doc => doc.id);
+        console.log(`Collection data fetched from ${path.join('/')}`);
+        console.log(collectionArray)
+        return collectionArray;
+    } catch (error) {
+        console.error(`Error getting collection from ${path.join('/')}: `, error);
+        throw error;
+    }
+}   
