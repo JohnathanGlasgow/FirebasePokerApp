@@ -94,7 +94,7 @@ input.todo-title {
     background-color: var(--less-dark-color) !important;
     color: var(--secondary-text-color) !important;
     border-color: var(--secondary-border-color) !important;
-    border-width: 2px !important;
+    border-width: 3px !important;
     border-radius: 5px !important;
     /* box-shadow: 0 0 10px var(--box-shadow-color);  */
 }
@@ -173,30 +173,39 @@ input.todo-title {
 .games-li {
     max-width: 500px;
     display: grid;
-    grid-template-columns: 0.5fr 1fr 1fr; 
+    grid-template-columns: 0.5fr 1fr 1fr;
     gap: 10px;
-    align-items: start; /* This aligns the grid items along the start of the block axis */
+    align-items: start;
+    /* This aligns the grid items along the start of the block axis */
 
 }
 
 .games-li .button-group {
     display: grid;
-    grid-template-columns: 1fr 1fr; 
-    gap: 10px; /* This adds some space between the buttons */
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    /* This adds some space between the buttons */
 }
 
 .button-group .btn {
-    width: 100px !important; /* This makes the buttons take up the full width of their grid cell */
+    width: 100px !important;
+    /* This makes the buttons take up the full width of their grid cell */
 }
 
 .btn-link {
     color: var(--secondary-text-color) !important;
 }
+
 .btn-link:hover {
     background-color: transparent !important;
-  }
+}
 
-  .card-subtitle {
+.card-subtitle {
     color: var(--secondary-text-color) !important;
     margin-bottom: 10px !important;
-  }
+}
+
+.game-board-buttons button {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
