@@ -13,13 +13,13 @@ import { GameListItem } from './GameListItem.js';
 import { CreateGameForm } from './CreateGameForm.js'; 
 import LoadingSpinner from './LoadingSpinner.js';   
 
-export default function GamesCard() {
+export default function GamesCard({ setGamePlayers, setCurrentGame }) {
     const navigate = useNavigate();
     const { user, uid } = useAuth();
     const { gameId } = useParams();
     const [games, setGames] = useState([]);
     const [error, setError] = useState('');
-    const [open, setOpen] = useState(true);
+    const [open, setOpen] = useState(!gameId);
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
@@ -36,16 +36,21 @@ export default function GamesCard() {
             console.log("Done getting games.");
             setIsLoading(false);
         }
-    }, []);
+    }, [gameId]);
 
     const handleSnapshot = (snapshot) => {
         const games = snapshot.docs.map((doc) => {
+            console.log("Doc ID: " + doc.id + " Game ID: " + gameId);
+            if (doc.id === gameId) {
+                setCurrentGame({ id: doc.id, ...doc.data() });
+              }
             return { id: doc.id, ...doc.data() };
         });
         setGames(games);
         setIsLoading(false);
     }
 
+    
     return (
         <Card className='game-card'>
             <LoadingSpinner show={isLoading} />
@@ -74,7 +79,7 @@ export default function GamesCard() {
                                 <ul className='games-list'>
                                     {
                                         games.map((game) => (
-                                            <GameListItem key={game.id} game={game}  />
+                                            <GameListItem key={game.id} game={game} setGamePlayers={setGamePlayers} />
                                         ))
                                     }
                                 </ul>

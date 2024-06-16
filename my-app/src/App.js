@@ -4,7 +4,8 @@ import LoginModal from './components/auth/LoginModal';
 import UserCard from './components/auth/UserCard.js';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import GamesCard from './components/GamesCard.js';
-import GamePage from './components/GameBoard.js';
+import GameBoard from './components/GameBoard.js';
+import GameRoute from './components/GameRoute.js';
 
 /**
  * App component for the application.
@@ -23,14 +24,12 @@ function App() {
           <>
             <UserCard />
             <GamesCard />
-            {/* <TodoList /> */}
           </>
         } />
         <Route path="/games/:gameId" element={
           <>
             <UserCard />
-            <GamesCard />
-            {/* <GamePage /> */}
+            <GameRoute />
           </>
         } />
       </Routes>
