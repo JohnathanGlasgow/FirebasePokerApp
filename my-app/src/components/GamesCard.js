@@ -1,6 +1,6 @@
 /**
- * GameListItem.js
- * This component is for managing games
+ * GamesCard.js
+ * This component is for creating and joining games
  */
 
 import React, { useState, useContext, useEffect } from 'react';
@@ -13,6 +13,13 @@ import { GameListItem } from './GameListItem.js';
 import { CreateGameForm } from './CreateGameForm.js'; 
 import LoadingSpinner from './LoadingSpinner.js';   
 
+/**
+ * GamesCard component.
+ * Renders a card with a list of games.
+ * 
+ * @component
+ * @returns {React.JSX.Element} The rendered GamesCard component.
+ */
 export default function GamesCard({ setGamePlayers, setCurrentGame }) {
     const navigate = useNavigate();
     const { user, uid } = useAuth();
@@ -24,7 +31,6 @@ export default function GamesCard({ setGamePlayers, setCurrentGame }) {
 
     useEffect(() => {
         try {
-            console.log("Getting games...");
             setIsLoading(true);
             return subscribeToCollection(['games'], handleSnapshot);
         }
@@ -33,14 +39,12 @@ export default function GamesCard({ setGamePlayers, setCurrentGame }) {
             setError("An error occurred. Please try again.");
         }
         finally {
-            console.log("Done getting games.");
             setIsLoading(false);
         }
     }, [gameId]);
 
     const handleSnapshot = (snapshot) => {
         const games = snapshot.docs.map((doc) => {
-            console.log("Doc ID: " + doc.id + " Game ID: " + gameId);
             if (doc.id === gameId) {
                 setCurrentGame({ id: doc.id, ...doc.data() });
               }

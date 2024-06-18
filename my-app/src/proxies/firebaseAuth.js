@@ -23,7 +23,6 @@ export const subscribeToAuth = (handleUser) => {
 export const signInAnon = async () => {
   try {
     const userCredential = await signInAnonymously(auth);
-    console.log('Signed in user:', userCredential.user);
   } catch (error) {
     console.error('Failed to sign in anonymously:', error);
     throw error;

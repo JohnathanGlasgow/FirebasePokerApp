@@ -25,29 +25,22 @@ import { getHandRanking } from '../utilities/evaluateHand';
 export default function GameBoard({ players, game }) {
     const { uid, userName } = useAuth();
     const { gameId } = useParams();
-    // const [game, setGame] = useState(null);
-    const [error, setError] = useState('');
 
-    const [results, setResults] = useState(null);
+    const [error, setError] = useState('');
     const [isLoading, setIsLoading] = useState(true);
     const [remainingCards, setRemainingCards] = useState(52);
     const [player, setPlayer] = useState(null);
     const [cardsToSwap, setCardsToSwap] = useState([]);
-    const [rank, setRank] = useState(null);
-    const [rankName, setRankName] = useState(null);
     const [isLoadingCards, setIsLoadingCards] = useState(false);
 
     const isYourTurn = game.order && game.order[game.turn].id === player?.id;
     const isGameWaiting = game.phase === 0;
     const isGameStarted = game.phase === 1;
-    const isGameEnded = game.phase === 2;
-    useEffect(() => { console.log(players); }, [players]);
 
     useEffect(() => {
         //find player that matches uid and use to setPlayer
         players &&
             setPlayer(players.find(player => player?.id === uid));
-        console.log(player);
     }, [players, uid]);
 
     useEffect(() => {
@@ -64,7 +57,6 @@ export default function GameBoard({ players, game }) {
         const newPhase = game.phase + 1;
         // map name and id from players to new array turnOrder
         const turnOrder = players.map(player => ({ name: player.name, id: player?.id }));
-        console.log(turnOrder);
         await setDocument(['games', gameId], { ...game, phase: newPhase, gameStarted: true, order: turnOrder });
     }
 
@@ -75,7 +67,6 @@ export default function GameBoard({ players, game }) {
                 const cards = await drawCards(game.deckId, 5);
                 setRemainingCards(cards.remaining);
                 await setDocument(['games', gameId, 'players', player?.id], { hand: cards.cards });
-                console.log(cards);
             }));
         } catch (error) {
             console.error(`Error dealing cards: ${error}`);
@@ -84,7 +75,6 @@ export default function GameBoard({ players, game }) {
 
     // function to swap cards
     const swapCards = async (cardIndexes) => {
-        console.log('Swapping cards...');
         setIsLoadingCards(true);
         try {
             const newCards = await drawCards(game.deckId, cardsToSwap.length);
@@ -100,9 +90,6 @@ export default function GameBoard({ players, game }) {
             });
 
             await setDocument(['games', gameId, 'players', player?.id], { hand: newHand, hasSwapped: true });
-
-            console.log(newHand);
-            console.log(newCards);
         } catch (error) {
             console.error(`Error swapping cards for ${player}: ${error}`);
         } finally {
@@ -114,21 +101,17 @@ export default function GameBoard({ players, game }) {
     const evaluate = async (player) => {
         const hand = player.hand.map(card => card.code);
         const result = getHandRanking(hand);
-        // setRank(result.rank);
-        // setRankName(result.rankName);
 
         await setDocument(['games', gameId, 'players', player?.id], { ...player, rank: result.rank, rankName: result.rankName });
-        console.log("Results for ", player.name, ": ", result.rank, result.rankName);
         return result;
     }
 
     const endGame = async () => {
-
-        console.log('Ending game...');
         // foreach player in players, evaluate their hand
         let winningRank = 0;
         let results = {};
         results.message = '';
+
         await Promise.all(players.map(async player => {
             let result = await evaluate(player);
             results.message += `${player.name}: ${result.rankName}\n`;
@@ -141,15 +124,14 @@ export default function GameBoard({ players, game }) {
             }
 
         }));
-        // dialog box with winner
+
         results.message += `Winner: ${results.winner}`;
         await setDocument(['games', gameId], { ...game, phase: 2, results: results });
-        //setResults(results);
     }
 
     const endTurn = async () => {
         const newTurn = game.turn + 1;
-        console.log('newTurn: ', newTurn, ' players.length: ', players.length);
+
         if (newTurn === players.length) {
             await setDocument(['games', gameId], { ...game, gameStarted: false });
             endGame();
@@ -192,7 +174,6 @@ export default function GameBoard({ players, game }) {
                 <div className='game-board-buttons'>
                     {isGameWaiting && <Button onClick={handleStartGame}>Start Game</Button>}
                     {isGameStarted && isYourTurn && !player.hasSwapped && <Button onClick={swapCards}>Swap Cards</Button>}
-                    {/* <Button onClick={evaluate}>Evaluate</Button> */}
                     {isGameStarted && isYourTurn && <Button onClick={endTurn}>End Turn</Button>}
                 </div>
                 <PokerHand player={player} cardsToSwap={cardsToSwap} setCardsToSwap={setCardsToSwap} isLoadingCards={isLoadingCards} />

@@ -30,7 +30,6 @@ export const GameListItem = ({ game, setGamePlayers, setCurrentGame }) => {
 
     useEffect(() => {
         try {
-            console.log("Getting players...");
             setIsLoading(true);
             return subscribeToCollection(['games', game.id, 'players'], handleSnapshot);
         }
@@ -39,19 +38,15 @@ export const GameListItem = ({ game, setGamePlayers, setCurrentGame }) => {
             setError("An error occurred. Please try again.");
         }
         finally {
-            console.log("Done getting players.");
             setIsLoading(false);
         }
     }, [game, gameId]);
 
     const handleSnapshot = (snapshot) => {
-        console.log("Handling players snapshot...");
         const players = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-        console.log("Players: " + players + " UID: " + uid );  
         setPlayers(players);
         game.id === gameId && setGamePlayers(players);
         setIsLoading(false);
-        console.log(isUserJoined(uid));
     }
 
     const joinGame = async (gameToJoinId) => {
