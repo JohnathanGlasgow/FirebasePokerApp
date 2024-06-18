@@ -21,7 +21,7 @@ import LoadingSpinner from './LoadingSpinner';
  * @param {Array<number>} cardsToSwap - The array of card indices to swap.
  * @returns {React.JSX.Element} The rendered PokerCard component.
  */
-const PokerCard = ({ card, index, handleCardClick, cardsToSwap }) => {
+export const PokerCard = ({ card, index, handleCardClick, cardsToSwap }) => {
     const [isImageLoaded, setIsImageLoaded] = useState(false);
 
     // This is a workaround for the onLoad event being spotty on Safari
@@ -57,5 +57,3 @@ const PokerCard = ({ card, index, handleCardClick, cardsToSwap }) => {
         </Card>
     );
 };
-
-export default PokerCard;

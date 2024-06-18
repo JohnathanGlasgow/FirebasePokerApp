@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, waitFor, fireEvent } from '@testing-library/react';
-import PokerCard from '../../components/PokerCard';
+import { PokerCard } from '../../components/PokerCard';
 
 describe('PokerCard', () => {
   test('changes color when clicked', () => {

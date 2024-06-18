@@ -6,11 +6,12 @@
  */
 
 import { CardGroup } from 'react-bootstrap';
-import PokerCard from './PokerCard';
+import { PokerCard } from './PokerCard';
 
 /**
  * PokerHand component.
  * This component is a container for 5x card images.
+ * 
  * @component
  * @param {Object} player - The player object.
  * @param {Array<number>} cardsToSwap - The array of card indices to swap.
@@ -45,6 +46,7 @@ export const PokerHand = ({ player, cardsToSwap, setCardsToSwap }) => {
             {player?.hand?.map((card, index) => (
                 <PokerCard
                     card={card}
+                    key={index}
                     index={index}
                     handleCardClick={handleCardClick}
                     cardsToSwap={cardsToSwap}
