@@ -5,12 +5,15 @@
 
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
+import { useNavigate, useParams } from 'react-router-dom';
 import { addDocument, setDocument } from '../proxies/queries';
 import { useAuth } from '../contexts/AuthContext';
 import { getDeck } from '../api_services/deckQueries';
 
 export const CreateGameForm = () => {
-    const { uid } = useAuth();
+    const { uid, userName } = useAuth();
+    const navigate = useNavigate();
+    const { gameId } = useParams();
     const [gameName, setGameName] = useState('');
     const [error, setError] = useState('');
     const [isLoading, setIsLoading] = useState(false);
@@ -25,9 +28,10 @@ export const CreateGameForm = () => {
         try {
             setIsLoading(true);
             const deck = await getDeck();
-            const gameId = await addDocument(['games'], { name: gameName, deckId: deck.deck_id, phase: 0 });
-            await setDocument(['games', gameId, 'players', uid ], {});
+            const newGameId = await addDocument(['games'], { name: gameName, deckId: deck.deck_id, phase: 0, turn: 0, gameStarted: false});
+            await setDocument(['games', newGameId, 'players', uid ], { name: userName, hasSwapped: false  });
             setGameName('');
+            !gameId && navigate(`/games/${newGameId}`);
         } catch (err) {
             setError('An error occurred. Please try again.');
         } finally {
