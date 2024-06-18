@@ -6,7 +6,6 @@
  * @date        14/06/2024
  */
 
-import React, { useContext } from 'react';
 import { Card } from 'react-bootstrap';
 import { useAuth } from '../../contexts/AuthContext';
 import LogoutButton from './LogoutButton';
@@ -18,17 +17,7 @@ import LoadingSpinner from '../LoadingSpinner';
  * @returns {React.JSX.Element} The UserCard component.
  */
 function UserCard() {
-  const { user, authLoading, userName } = useAuth();
-
-  /**
-   * Formats the user's display name.
-   * @returns {string} The display name.
-   */
-  const displayName = () =>
-  {
-    if (!user) return;
-    return (user.isAnonymous ? "Anonymous" : user.email );
-  };
+  const { authLoading, userName } = useAuth();
 
   if (authLoading) return <Card className="user-card"> <LoadingSpinner show={true}/> </Card>;
   return (
