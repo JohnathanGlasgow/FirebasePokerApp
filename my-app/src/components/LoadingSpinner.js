@@ -12,10 +12,10 @@ import { Spinner } from "react-bootstrap";
  * 
  * @returns {React.JSX.Element} The LoadingSpinner component.
  */
-function LoadingSpinner({show, alt=false}) {
+function LoadingSpinner({show, alt=false, opaque=false}) {
   return (
     show &&
-    <div className={`loading-spinner${alt ? ' alt-color' : ''}`}>
+    <div className={`loading-spinner ${alt ? 'alt-color' : ''} ${opaque ? 'opaque' : ''}`}>
       <Spinner animation="border" role="status" variant="light" />
     </div>
   );

@@ -141,6 +141,10 @@ input.todo-title {
     background-color: var(--less-dark-color) !important;
 }
 
+.opaque {
+    opacity: 1;
+}
+
 .user-name {
     color: var(--main-text-color) !important;
 }
