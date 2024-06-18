@@ -15,6 +15,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { PokerHand } from './PokerHand';
 import { drawCards, getRemainingCards } from '../api_services/deckQueries';
 import { getHandRanking } from '../utilities/evaluateHand';
+import LoadingSpinner from './LoadingSpinner.js';
 
 /**
  * GameBoard component.
@@ -31,11 +32,10 @@ export function GameBoard({ players, game }) {
     const { gameId } = useParams();
 
     const [error, setError] = useState('');
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
     const [remainingCards, setRemainingCards] = useState(52);
     const [player, setPlayer] = useState(null);
     const [cardsToSwap, setCardsToSwap] = useState([]);
-    const [isLoadingCards, setIsLoadingCards] = useState(false);
 
     const isYourTurn = game.order && game.order[game.turn].id === player?.id;
     const isGameWaiting = game.phase === 0;
@@ -77,7 +77,7 @@ export function GameBoard({ players, game }) {
      * @returns {Promise<void>} - A promise that resolves when all players have been dealt cards.
      */
     const deal = async () => {
-        console.log('Dealing cards...');
+        setIsLoading(true);
         try {
             await Promise.all(players.map(async player => {
                 const cards = await drawCards(game.deckId, 5);
@@ -86,6 +86,9 @@ export function GameBoard({ players, game }) {
             }));
         } catch (error) {
             console.error(`Error dealing cards: ${error}`);
+            setError(`Error dealing cards: ${error}`);
+        } finally {
+            setIsLoading(false);
         }
     }
 
@@ -95,6 +98,7 @@ export function GameBoard({ players, game }) {
      * @param {number[]} cardIndexes 
      */
     const swapCards = async (cardIndexes) => {
+        setIsLoading(true);
         try {
             const newCards = await drawCards(game.deckId, cardsToSwap.length);
             setRemainingCards(newCards.remaining);
@@ -113,6 +117,7 @@ export function GameBoard({ players, game }) {
             console.error(`Error swapping cards for ${player}: ${error}`);
         } finally {
             setCardsToSwap([]);
+            setIsLoading(false);
         }
     }
 
@@ -156,7 +161,16 @@ export function GameBoard({ players, game }) {
         }));
 
         results.message += `Winner: ${results.winner}`;
-        await setDocument(['games', gameId], { ...game, phase: 2, results: results });
+
+        try {
+            setIsLoading(true);
+            await setDocument(['games', gameId], { ...game, phase: 2, results: results });
+        } catch (error) {
+            console.error(`Error ending game: ${error}`);
+            setError(`Error ending game: ${error}`);
+        } finally {
+            setIsLoading(false);
+        }
     }
 
     /**
@@ -169,22 +183,33 @@ export function GameBoard({ players, game }) {
         const newTurn = game.turn + 1;
 
         // If all players have taken their turn, end the game
-        if (newTurn === players.length) {
-            await setDocument(['games', gameId], { ...game, gameStarted: false });
-            endGame();
+        if (newTurn === players.length) {           
+            try {
+                setIsLoading(true);
+                await setDocument(['games', gameId], { ...game, gameStarted: false });
+                endGame();
+            } catch (error) {
+                console.error("Error updating document: ", error);
+                setError("Error updating document: ", error);
+            } finally {
+                setIsLoading(false);
+            }
         }
         else {
-            await setDocument(['games', gameId], { ...game, turn: newTurn });
+            try {
+                setIsLoading(true);
+                await setDocument(['games', gameId], { ...game, turn: newTurn });
+            } catch (error) {
+                console.error("Error updating document: ", error);
+            } finally {
+                setIsLoading(false);
+            }
         }
     }
 
 
-    if (error) {
-        return <Alert variant="danger">{error}</Alert>;
-    }
-
     if (!game) {
-        return <Alert variant="info">Loading...</Alert>;
+        return <LoadingSpinner />;
     }
 
     if (!player) {
@@ -197,9 +222,9 @@ export function GameBoard({ players, game }) {
                 <Card.Title>{game.name}</Card.Title>
                 <Card.Text> Player Count: {players?.length} </Card.Text>
                 {isGameStarted && <Card.Text> {game.order[game.turn].name === userName ? "It's your turn" : `It's ${game.order[game.turn].name}'s turn`}</Card.Text>}
-                <Card.Text> Cards Remaining: {remainingCards} </Card.Text>
+                <Card.Text> Cards Remaining: {remainingCards ?? "Loading..."} </Card.Text>
                 {game?.results &&
-                // Format the results message to display each line on a new line
+                    // Format the results message to display each line on a new line
                     <Alert variant="success">
                         {game.results.message.split('\n').map((line, index) => (
                             <React.Fragment key={index}>
@@ -209,10 +234,11 @@ export function GameBoard({ players, game }) {
                         ))}
                     </Alert>
                 }
+                {error && <Alert variant="danger">{error}</Alert>}
                 <div className='game-board-buttons'>
-                    {isGameWaiting && <Button onClick={handleStartGame}>Start Game</Button>}
-                    {isGameStarted && isYourTurn && !player.hasSwapped && <Button onClick={swapCards}>Swap Cards</Button>}
-                    {isGameStarted && isYourTurn && <Button onClick={endTurn}>End Turn</Button>}
+                    {isGameWaiting && <Button onClick={handleStartGame} disabled={isLoading}>Start Game</Button>}
+                    {isGameStarted && isYourTurn && !player.hasSwapped && <Button onClick={swapCards} disabled={isLoading}>Swap Cards</Button>}
+                    {isGameStarted && isYourTurn && <Button onClick={endTurn} disabled={isLoading}>End Turn</Button>}
                 </div>
                 <PokerHand player={player} cardsToSwap={cardsToSwap} setCardsToSwap={setCardsToSwap} />
             </Card.Body>
