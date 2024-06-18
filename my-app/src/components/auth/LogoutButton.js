@@ -1,8 +1,9 @@
 /**
- * LogutButton.js
- * 
- * This file exports a LogoutButton component that renders a button.
- * When clicked, it logs the user out.
+ * @file        LogoutButton.js
+ * @description This file exports a LogoutButton component that renders a button.
+ *              When clicked, it logs the user out.
+ * @author      Johnathan Glasgow
+ * @date        14/06/2024
  */
 
 import React from 'react';

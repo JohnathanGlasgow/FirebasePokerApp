@@ -1,7 +1,8 @@
 /**
- * AuthContext.js
- * 
- * Context provider for Firebase authentication.
+ * @file        AuthContext.js
+ * @description Context provider for Firebase authentication.
+ * @author      Johnathan Glasgow
+ * @date        14/06/2024
  */
 
 import { createContext, useState, useEffect, useContext } from 'react';

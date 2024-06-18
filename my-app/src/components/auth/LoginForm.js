@@ -1,8 +1,9 @@
 /**
- * LoginForm.js 
- * 
- * The login form component for the application.
- * Used for logging in with email and password.
+ * @file        LoginForm.js 
+ * @description The login form component for the application.
+ *              Used in the LoginModal component for logging in with email and password.
+ * @author      Johnathan Glasgow
+ * @date        14/06/2024
  */
     
 import Button from 'react-bootstrap/Button';

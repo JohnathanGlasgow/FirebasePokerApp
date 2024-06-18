@@ -1,3 +1,10 @@
+/**
+ * @file        App.js
+ * @description Main application component that contains the routing for the application.
+ * @author      Johnathan Glasgow
+ * @date        14/06/2024
+ */
+
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import LoginModal from './components/auth/LoginModal';

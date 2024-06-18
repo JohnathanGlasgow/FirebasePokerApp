@@ -1,6 +1,8 @@
 /**
- * firebaseAuth.js
- * This file proxies out the Firebase authentication methods.
+ * @file        firebaseAuth.js
+ * @description This file proxies out the Firebase authentication methods.
+ * @author      Johnathan Glasgow
+ * @date        14/06/2024
  */
 
 import { signInWithPopup, signInAnonymously, signOut, onAuthStateChanged, signInWithEmailAndPassword, GoogleAuthProvider } from 'firebase/auth';

@@ -1,8 +1,10 @@
 /**
- * LoginProvidersCard.js
- * 
- * This file exports a LoginProvidersCard component that renders a card with login providers.
+ * @file        LoginProvidersCard.js
+ * @description This file exports a LoginProvidersCard component that renders a card with login providers.
+ * @author      Johnathan Glasgow
+ * @date        14/06/2024
  */
+
 import { Card, Button } from 'react-bootstrap';
 import React from 'react';
 import googleLogo from '../../assets/google.png';

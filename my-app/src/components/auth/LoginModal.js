@@ -1,8 +1,10 @@
 /**
- * LoginModal.js
- * 
- * This file exports a LoginModal component that renders a modal for logging in.
+ * @file        LoginModal.js
+ * @description This file exports a LoginModal component that renders a modal for logging in.
+ * @author      Johnathan Glasgow
+ * @date        14/06/2024
  */
+
 import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import { useAuth } from '../../contexts/AuthContext';

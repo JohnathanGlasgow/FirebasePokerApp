@@ -1,8 +1,11 @@
 /**
- * queries.js
- * This file is used to define the queries that will be used in the application.
- * The queries are used to fetch data from firebase.
+ * @file        queries.js
+ * @description This file is used to define the queries that will be used in the application.
+ *              The queries are used to fetch data from firebase.
+ * @author      Johnathan Glasgow
+ * @date        14/06/2024
  */
+
 import { collection, addDoc, deleteDoc, getDoc, doc, setDoc, onSnapshot } from "firebase/firestore";
 import { db } from "../firebase.js";
 

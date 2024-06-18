@@ -1,7 +1,8 @@
 /**
- * LoadingSpinner.js
- * 
- * This file exports a LoadingSpinner component that renders a spinner.
+ * @file        LoadingSpinner.js
+ * @description This file exports a LoadingSpinner component that renders a spinner.
+ * @author      Johnathan Glasgow
+ * @date        14/06/2024
  */
 
 import React from "react";

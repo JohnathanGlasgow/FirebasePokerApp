@@ -1,8 +1,9 @@
 /**
- * UserCard.js
- * 
- * This file exports a UserCard component that renders a card with user information.
- * It displays the user's email if logged in, or "Anonymous" if logged in anonymously.
+ * @file        UserCard.js
+ * @description This file exports a UserCard component that renders a card with user information.
+ *              It displays the user's email if logged in, or "Anonymous" if logged in anonymously.
+ * @author      Johnathan Glasgow
+ * @date        14/06/2024
  */
 
 import React, { useContext } from 'react';
