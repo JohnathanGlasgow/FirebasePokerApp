@@ -6,8 +6,9 @@
 
 import { createContext, useState, useEffect, useContext } from 'react';
 import { signInAnon, signOutUser, subscribeToAuth, signInWithEmail, signInWithGoogle } from '../proxies/firebaseAuth'; // import Firebase methods
-import { setDocument, deleteDocument } from '../proxies/queries';
+import { setDocument, deleteDocument, getDocument } from '../proxies/queries';
 import { useNavigate } from 'react-router-dom';
+import { getRandomUser } from '../api_services/randomUser';
 
 export const AuthContext = createContext();
 
@@ -22,7 +23,7 @@ export function AuthProvider({ children }) {
   const navigate = useNavigate();
   const [authLoading, setIsLoading] = useState(true);
   const [loggingOut, setLoggingOut] = useState(false);
-  const [userName, setUserName] = useState({});
+  const [userName, setUserName] = useState('');
 
   /**
    * State hook for user.
@@ -64,17 +65,28 @@ export function AuthProvider({ children }) {
    * @returns {void}
    */
   const handleUser = async (user) => {
+    setIsLoading(true);
     if (user) {
       // There is some error handling here to prevent the user from being logged in if the user document can't be set
       try {
+        const savedUser = await getDocument(["users", user.uid]);
+        if (savedUser) {
+          setUserName(savedUser.data().displayName);
+          setUser(user);
+          navigate(`/user/${user.uid}`);
+          setError('');
+          return;
+        }
+        const randUser = await getRandomUser();
+        const newDisplayName = user.displayName ?? (user.email ? user.email.match(/[^@]*/)[0] : randUser);
         await setDocument(["users", user.uid], {
-          displayName: user.displayName,
+          displayName: newDisplayName,
           email: user.email,
           emailVerified: user.emailVerified,
           isAnonymous: user.isAnonymous,
         });
         setUser(user);
-        setUserName(user.displayName ?? user.email ? user.email.match(/[^@]*/)[0] : 'Anon');
+        setUserName(user.displayName ?? (user.email ? user.email.match(/[^@]*/)[0] : randUser));
         navigate(`/user/${user.uid}`);
         setError('');
       } catch (error) {

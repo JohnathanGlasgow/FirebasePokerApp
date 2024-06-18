@@ -17,7 +17,7 @@ import LoadingSpinner from '../LoadingSpinner';
  * @returns {React.JSX.Element} The UserCard component.
  */
 function UserCard() {
-  const { user, authLoading } = useAuth();
+  const { user, authLoading, userName } = useAuth();
 
   /**
    * Formats the user's display name.
@@ -33,7 +33,7 @@ function UserCard() {
   return (
     <Card className="user-card">
       <Card.Body className='user-card-body'>
-        <Card.Title>Logged in as: <span className='user-name'>{displayName()}</span></Card.Title>
+        <Card.Title>Logged in as: <span className='user-name'>{userName}</span></Card.Title>
         <LogoutButton />
       </Card.Body>
     </Card>
