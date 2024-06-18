@@ -1,6 +1,6 @@
 /**
- * @file        GameListItem.js
- * @description This file defines a component that represents a single game listing in the GamesCard component.
+ * @file        PokerHand.js
+ * @description This file defines a component that represents the player's hand in a poker game.
  * @author      Johnathan Glasgow
  * @date        16/06/2024
  */
@@ -12,9 +12,12 @@ import PokerCard from './PokerCard';
  * PokerHand component.
  * This component is a container for 5x card images.
  * @component
+ * @param {Object} player - The player object.
+ * @param {Array<number>} cardsToSwap - The array of card indices to swap.
+ * @param {function} setCardsToSwap - The function to set the cardsToSwap array.
  * @returns {React.JSX.Element} The rendered PokerHand component.
  */
-export const PokerHand = ({ player, cardsToSwap, setCardsToSwap, isLoadingCards }) => {
+export const PokerHand = ({ player, cardsToSwap, setCardsToSwap }) => {
 
     /**
      * Handles the event when a card is clicked.
@@ -45,7 +48,6 @@ export const PokerHand = ({ player, cardsToSwap, setCardsToSwap, isLoadingCards 
                     index={index}
                     handleCardClick={handleCardClick}
                     cardsToSwap={cardsToSwap}
-                    isLoadingCards={isLoadingCards}
                 />
             ))}
         </CardGroup>

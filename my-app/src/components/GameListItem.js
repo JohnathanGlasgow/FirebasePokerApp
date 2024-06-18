@@ -20,7 +20,7 @@ import LoadingSpinner from './LoadingSpinner.js';
  * @param {Object} game - The game object.
  * @returns {React.JSX.Element} The rendered GameListItem component.
  */
-export const GameListItem = ({ game, setGamePlayers, setCurrentGame }) => {
+export const GameListItem = ({ game, setGamePlayers }) => {
     const navigate = useNavigate();
     const { uid, userName } = useAuth();
     const { gameId } = useParams();
@@ -29,7 +29,9 @@ export const GameListItem = ({ game, setGamePlayers, setCurrentGame }) => {
     const [error, setError] = useState('');
 
     const MAX_PLAYERS = 5;
+    const isUserJoined = (uid) => players.some(player => player.id === uid);
 
+    // Subscribe to the players collection
     useEffect(() => {
         try {
             setIsLoading(true);
@@ -44,19 +46,33 @@ export const GameListItem = ({ game, setGamePlayers, setCurrentGame }) => {
         }
     }, [game, gameId]);
 
+    /**
+     * Handle the snapshot of the players collection.
+     * 
+     * @param {Object} snapshot - An object representing a snapshot from the database.
+     */
     const handleSnapshot = (snapshot) => {
         const players = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
         setPlayers(players);
+        // If the game id matches the gameId in the URL, set the players as the current game players
         game.id === gameId && setGamePlayers(players);
         setIsLoading(false);
     }
 
+    /**
+     * Join a game.
+     * 
+     * @param {string} gameToJoinId - The ID of the game to join.
+     * @returns {Promise<void>} A promise that resolves when the user has joined the game.
+     */
     const joinGame = async (gameToJoinId) => {
         setIsLoading(true);
         const playerPath = ['games', gameToJoinId, 'players', uid];
-        
-        try {           
+
+        try {
+            // Add the player to the game in the database           
             await setDocument(playerPath, { name: userName, hasSwapped: false });
+            // If there is no gameId in the URL, navigate to the game
             !gameId && navigate(`/games/${gameToJoinId}`);
         }
         catch (error) {
@@ -67,11 +83,17 @@ export const GameListItem = ({ game, setGamePlayers, setCurrentGame }) => {
         }
     };
 
+    /**
+     * Leave a game.
+     * 
+     * @param {string} gameId - The ID of the game to leave.
+     * @returns {Promise<void>} A promise that resolves when the user has left the game.
+     */
     const leaveGame = async (gameId) => {
         setIsLoading(true);
         const gamePath = ['games', gameId];
         const playerPath = [...gamePath, 'players', uid];
-        try {          
+        try {
             players?.length > 1 ? await deleteDocument(playerPath) : await deleteDocument(gamePath);
         }
         catch (error) {
@@ -82,14 +104,10 @@ export const GameListItem = ({ game, setGamePlayers, setCurrentGame }) => {
         }
     }
 
-    const isUserJoined = (uid) => {
-        return players.some(player => player.id === uid);
-    }
-
     if (!game) {
         return null;
     }
-    
+
     if (error) {
         return <Alert variant="danger">{error}</Alert>;
     }
@@ -113,7 +131,7 @@ export const GameListItem = ({ game, setGamePlayers, setCurrentGame }) => {
                 <Button variant="secondary" onClick={() => leaveGame(game.id)} disabled={!isUserJoined(uid)}>
                     {players?.length !== 1 ? 'Leave' : 'Delete'}
                 </Button>
-            </div>     
+            </div>
         </li>
     );
 };
