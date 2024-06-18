@@ -1,7 +1,9 @@
 /**
- * deckQueries.js
- * This file is used to define the requests to the Deck of Cards API.
- * The API is hosted at www.deckofcardsapi.com
+ * @file        deckQueries.js
+ * @description This file is used to define requests to the Deck of Cards API.
+ *              The API is hosted at www.deckofcardsapi.com
+ * @author      Johnathan Glasgow
+ * @date        15/06/2024
  */
 
 /**
@@ -38,11 +40,10 @@ export const drawCards = async (deckId, count) => {
 }
 
 /**
- * This function returns number of cards remaining in the deck using https://www.deckofcardsapi.com/api/deck/zegdsdvbbudn/return/
+ * This function returns number of cards remaining in the deck
  * @param {string} deckId - The ID of the deck to draw from.
  * @returns {Promise<Object>} A Promise that resolves with the card object.
  */
-
 export const getRemainingCards = async (deckId) => {
     try {
         const response = await fetch(`https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=0`);

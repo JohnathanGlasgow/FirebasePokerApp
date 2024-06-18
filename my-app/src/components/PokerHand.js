@@ -1,10 +1,11 @@
-// this component is a container for 5x card images
-// make it contain https://www.deckofcardsapi.com/static/img/back.png for now
+/**
+ * @file        GameListItem.js
+ * @description This file defines a component that represents a single game listing in the GamesCard component.
+ * @author      Johnathan Glasgow
+ * @date        16/06/2024
+ */
 
-import { useEffect, useState } from 'react';
-import { CardGroup, Card, Button, CardBody } from 'react-bootstrap';
-import { subscribeToDocument } from '../proxies/queries';
-import LoadingSpinner from './LoadingSpinner';
+import { CardGroup } from 'react-bootstrap';
 import PokerCard from './PokerCard';
 
 /**
@@ -15,6 +16,13 @@ import PokerCard from './PokerCard';
  */
 export const PokerHand = ({ player, cardsToSwap, setCardsToSwap, isLoadingCards }) => {
 
+    /**
+     * Handles the event when a card is clicked.
+     * If the card's index is already in the cardsToSwap array, it removes it.
+     * If it's not, it adds it to the array.
+     *
+     * @param {number} index - The index of the clicked card.
+     */
     const handleCardClick = (index) => {
         // Call the setCardsToSwap function passed from the parent component
         setCardsToSwap(prevState => {
@@ -31,10 +39,8 @@ export const PokerHand = ({ player, cardsToSwap, setCardsToSwap, isLoadingCards 
 
     return (
         <CardGroup style={{ maxWidth: '1000px' }}>
-
-
             {player?.hand?.map((card, index) => (
-                <PokerCard       
+                <PokerCard
                     card={card}
                     index={index}
                     handleCardClick={handleCardClick}
@@ -42,7 +48,6 @@ export const PokerHand = ({ player, cardsToSwap, setCardsToSwap, isLoadingCards 
                     isLoadingCards={isLoadingCards}
                 />
             ))}
-
         </CardGroup>
     );
 }

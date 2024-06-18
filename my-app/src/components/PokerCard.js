@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
 import CardBody from 'react-bootstrap/CardBody';
-import LoadingSpinner from './LoadingSpinner'; // replace with path to your LoadingSpinner component
+import LoadingSpinner from './LoadingSpinner'; 
 
 const PokerCard = ({ card, index, handleCardClick, cardsToSwap, isLoadingCards }) => {
     const [isImageLoaded, setIsImageLoaded] = useState(false);

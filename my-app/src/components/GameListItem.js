@@ -1,10 +1,12 @@
 /**
- * GameListItem.js
- * This component displays the game listings
+ * @file        GameListItem.js
+ * @description This file defines a component that represents a single game listing in the GamesCard component.
+ * @author      Johnathan Glasgow
+ * @date        14/06/2024
  */
 
 import { useEffect, useState } from 'react';
-import { Button } from 'react-bootstrap';
+import { Alert, Button } from 'react-bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext.js';
 import { setDocument, deleteDocument, subscribeToCollection } from '../proxies/queries.js';
@@ -88,6 +90,10 @@ export const GameListItem = ({ game, setGamePlayers, setCurrentGame }) => {
         return null;
     }
     
+    if (error) {
+        return <Alert variant="danger">{error}</Alert>;
+    }
+
     return (
         <li key={game.id} style={{ listStyleType: 'none', position: 'relative' }} className='games-li'>
             <LoadingSpinner show={isLoading} alt={true} />
@@ -99,14 +105,15 @@ export const GameListItem = ({ game, setGamePlayers, setCurrentGame }) => {
             </p>
             <p>Player Count: {players?.length}</p>
             <div className='button-group'>
+                {/* Disable join button if game has started, user has already joined, or max players has been reached */}
                 <Button variant="primary" onClick={() => joinGame(game.id)} disabled={game.gameStarted || isUserJoined(uid) || players.length === MAX_PLAYERS}>
                     Join
                 </Button>
+                {/* Disable leave button if user has not joined. If user is the only player, change button function to delete game */}
                 <Button variant="secondary" onClick={() => leaveGame(game.id)} disabled={!isUserJoined(uid)}>
                     {players?.length !== 1 ? 'Leave' : 'Delete'}
                 </Button>
-            </div>
-            
+            </div>     
         </li>
     );
 };
