@@ -84,7 +84,8 @@ export const deleteDocument = async (path) => {
 }
 
 /**
- * This function is the unsubscribe function for the onSnapshot listener
+ * Subscribe to a collection or subcollection in the firestore database
+ * 
  * @param {Array} path - The path to the collection or subcollection. This should be an array of alternating collection names and document IDs
  * @param {function} handleSnapshot - The function to handle the snapshot data
  * @returns {function} The unsubscribe function for the onSnapshot listener
@@ -93,12 +94,23 @@ export const subscribeToCollection = (path, handleSnapshot) => {
     return onSnapshot(collection(db, ...path), handleSnapshot);
 }
 
+/**
+ * Subscribe to a document in the firestore database
+ * 
+ * @param {Array} path - The path to the document to subscribe to
+ * @param {function} handleSnapshot - The function to handle the snapshot data
+ * @returns {function} The unsubscribe function for the onSnapshot listener
+ */
 export const subscribeToDocument = (path, handleSnapshot) => {
     return onSnapshot(doc(db, ...path), handleSnapshot);
 }
 
-
-// function that looks up collection and returns an array of the document IDs
+/**
+ * Get the IDs of all the documents in a collection
+ * 
+ * @param {Array} path - The path to the collection
+ * @returns {Array} An array of document IDs
+ */
 export const getCollectionIds = async (path) => {
     try {
         const collectionRef = collection(db, ...path);
