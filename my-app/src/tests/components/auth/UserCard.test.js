@@ -1,23 +1,25 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import React from 'react';
 import UserCard from '../../../components/auth/UserCard';
-import * as AuthContext from '../../../contexts/AuthContext'; 
+import { AuthContext } from '../../../contexts/AuthContext'; 
 
 describe('UserCard component', () => {
     test('renders user information correctly', () => {
         // Mock the useAuth hook to return user information
-        const user = {
-            email: 'test@example.com',
-            isAnonymous: false,
+        const userName = 'Dennis';
+        // Mock the context to return the mocked user
+        const mockAuthContext = {
+            userName,
         };
-        jest.spyOn(AuthContext, 'useAuth').mockReturnValue({
-            user,
-        });
 
         // Render the UserCard component
-        const { getByText } = render(<UserCard />);
+        render(
+            <AuthContext.Provider value={mockAuthContext}>
+                <UserCard />
+            </AuthContext.Provider>
+        );
 
         // Check if the correct user information is displayed
-        expect(getByText('Logged in as: test@example.com')).toBeInTheDocument();
+        expect(screen.getByText('Dennis')).toBeInTheDocument();
     });
 });
