@@ -4,6 +4,8 @@
 import { useEffect, useState } from 'react';
 import { CardGroup, Card, Button, CardBody } from 'react-bootstrap';
 import { subscribeToDocument } from '../proxies/queries';
+import LoadingSpinner from './LoadingSpinner';
+import PokerCard from './PokerCard';
 
 /**
  * PokerHand component.
@@ -11,7 +13,7 @@ import { subscribeToDocument } from '../proxies/queries';
  * @component
  * @returns {React.JSX.Element} The rendered PokerHand component.
  */
-export const PokerHand = ({ player, setCardsToSwap }) => {
+export const PokerHand = ({ player, cardsToSwap, setCardsToSwap, isLoadingCards }) => {
     const cardBackUrl = "https://www.deckofcardsapi.com/static/img/6H.png";
     const cardCount = 5;
 
@@ -22,18 +24,6 @@ export const PokerHand = ({ player, setCardsToSwap }) => {
     }, [clickedCards]);
 
     const handleCardClick = (index) => {
-        setClickedCards(prevState => {
-            // Check if the card is already in the clickedCards array
-            if (prevState.includes(index)) {
-                // If it is, remove it from the array
-                return prevState.filter(i => i !== index);
-            } else {
-                // If it's not, add it to the array
-                return [...prevState, index];
-            }
-        });
-
-
         // Call the setCardsToSwap function passed from the parent component
         setCardsToSwap(prevState => {
             console.log('setCardsToSwap is called with index:', index);
@@ -56,16 +46,16 @@ export const PokerHand = ({ player, setCardsToSwap }) => {
     return (
         <CardGroup style={{ maxWidth: '1000px' }}>
 
+
             {player?.hand?.map((card, index) => (
-                <Card
-                    border="dark"
-                    bg={clickedCards.includes(index) ? "danger" : "primary"}
-                    onClick={() => handleCardClick(index)}
-                >
-                    <CardBody>
-                        <Card.Img key={index} src={card.image} alt="Card" />
-                    </CardBody>
-                </Card>
+                <PokerCard
+                
+                    card={card}
+                    index={index}
+                    handleCardClick={handleCardClick}
+                    cardsToSwap={cardsToSwap}
+                    isLoadingCards={isLoadingCards}
+                />
             ))}
 
         </CardGroup>
