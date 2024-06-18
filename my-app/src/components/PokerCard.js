@@ -51,7 +51,7 @@ const PokerCard = ({ card, index, handleCardClick, cardsToSwap }) => {
                 <Card.Img
                     key={index}
                     src={card.image}
-                    alt="Card"
+                    alt="poker card"
                 />
             </CardBody>
         </Card>
