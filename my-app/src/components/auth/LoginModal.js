@@ -26,8 +26,8 @@ function LoginModal() {
       <Modal.Body>
         <Modal.Header style={{ border: 'none', fontWeight: 'bold' }}>Login in with... </Modal.Header>
         <LoginProvidersCard />
-        <Modal.Header style={{ border: 'none', fontWeight: 'bold' }}>Or login with email... </Modal.Header>
-        <LoginForm />
+        {/* <Modal.Header style={{ border: 'none', fontWeight: 'bold' }}>Or login with email... </Modal.Header>
+        <LoginForm /> */}
         <Button variant="link" onClick={loginMethods.anon} style={{ fontStyle: 'italic', textDecoration: 'none' }}>...or login anonymously</Button>
       </Modal.Body>
     </Modal>
