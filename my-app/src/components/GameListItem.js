@@ -7,9 +7,8 @@ import { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext.js';
-import { getDocument, setDocument, deleteDocument, getCollectionIds, subscribeToCollection } from '../proxies/queries.js';
+import { setDocument, deleteDocument, subscribeToCollection } from '../proxies/queries.js';
 import LoadingSpinner from './LoadingSpinner.js';
-import { doc } from '@firebase/firestore';
 
 /**
  * GameListItem component.
@@ -21,12 +20,13 @@ import { doc } from '@firebase/firestore';
  */
 export const GameListItem = ({ game, setGamePlayers, setCurrentGame }) => {
     const navigate = useNavigate();
-    const { uid } = useAuth();
+    const { uid, userName } = useAuth();
     const { gameId } = useParams();
     const [isLoading, setIsLoading] = useState(false);
     const [players, setPlayers] = useState([]);
     const [error, setError] = useState('');
-    const [userIsJoined, setUserIsJoined] = useState(false);
+
+    const MAX_PLAYERS = 5;
 
     useEffect(() => {
         try {
@@ -42,44 +42,25 @@ export const GameListItem = ({ game, setGamePlayers, setCurrentGame }) => {
             console.log("Done getting players.");
             setIsLoading(false);
         }
-    }, [gameId]);
+    }, [game, gameId]);
 
     const handleSnapshot = (snapshot) => {
+        console.log("Handling players snapshot...");
         const players = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
         console.log("Players: " + players + " UID: " + uid );  
         setPlayers(players);
         game.id === gameId && setGamePlayers(players);
         setIsLoading(false);
-        setUserIsJoined(isUserJoined(uid));
+        console.log(isUserJoined(uid));
     }
 
-    // useEffect(() => {
-    //     try {
-    //         console.log('call');
-    //         setIsLoading(true);
-    //         return subscribeToDocument(['games', gameId], handleGameSnapshot);
-    //     }
-    //     catch (error) {
-    //         console.error("Error getting game: ", error);
-    //         setError("An error occurred. Please try again.");
-    //     }
-    //     finally {
-    //         setIsLoading(false);
-    //     }
-    // }, [gameId]);
-
-    // const handleGameSnapshot = (snapshot) => {
-    //     const game = { id: snapshot.id, ...snapshot.data() };
-    //     setGame(game);
-    //     game.id === gameId && setCurrentGame(game);
-    // }
-
-    const joinGame = async (gameId) => {
+    const joinGame = async (gameToJoinId) => {
         setIsLoading(true);
-        const playerPath = ['games', gameId, 'players', uid];
+        const playerPath = ['games', gameToJoinId, 'players', uid];
         
         try {           
-            await setDocument(playerPath, {});
+            await setDocument(playerPath, { name: userName, hasSwapped: false });
+            !gameId && navigate(`/games/${gameToJoinId}`);
         }
         catch (error) {
             console.error("Error joining game: ", error);
@@ -123,10 +104,10 @@ export const GameListItem = ({ game, setGamePlayers, setCurrentGame }) => {
             </p>
             <p>Player Count: {players?.length}</p>
             <div className='button-group'>
-                <Button variant="primary" onClick={() => joinGame(game.id)} disabled={userIsJoined}>
+                <Button variant="primary" onClick={() => joinGame(game.id)} disabled={game.gameStarted || isUserJoined(uid) || players.length === MAX_PLAYERS}>
                     Join
                 </Button>
-                <Button variant="secondary" onClick={() => leaveGame(game.id)} disabled={!userIsJoined}>
+                <Button variant="secondary" onClick={() => leaveGame(game.id)} disabled={!isUserJoined(uid)}>
                     {players?.length !== 1 ? 'Leave' : 'Delete'}
                 </Button>
             </div>
