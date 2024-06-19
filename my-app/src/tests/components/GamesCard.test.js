@@ -50,7 +50,7 @@ describe('GamesCard component', () => {
 
         // Wait for the component to render
         await waitFor(() => {
-            // Check if input elements have the correct value
+            // Check if the mock games are displayed in the GameListItems
             expect(getByText('Game1')).toBeInTheDocument();
             expect(getByText('Game2')).toBeInTheDocument();
         });
