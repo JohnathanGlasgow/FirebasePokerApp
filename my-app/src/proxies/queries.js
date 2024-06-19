@@ -17,11 +17,7 @@ import { db } from "../firebase.js";
 export const addDocument = async (path, document) => {
     try {
         const docRef = await addDoc(collection(db, ...path), document);
-        console.log(`Document added to to ${path.join('/')} with ID: ${docRef.id}`);
-        // log the formatted path (good for testing rules in Firestore)
-        //console.log(`${path.join('/')}/${docRef.id}`);
         return docRef.id;
-
     } catch (error) {
         console.error(`Error adding document to ${path.join('/')}: `, error);
         throw error;
@@ -38,7 +34,6 @@ export const getDocument = async (path) => {
         const docRef = doc(db, ...path);
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
-            console.log(`Document data fetched from ${path.join('/')} with ID: ${docSnap.id}`);
             return docSnap;
         } else {
             console.error(`No such document exists in ${path.join('/')}`);
@@ -62,7 +57,6 @@ export const getDocument = async (path) => {
 export const setDocument = async (path, document, options = { merge: true }) => {
     try {
         await setDoc(doc(db, ...path), document, options);
-        console.log(`Document set to ${path.join('/')} with ID: ${path[path.length - 1]}`);
     } catch (error) {
         console.error(`Error setting document to ${path.join('/')}: `, error);
         throw error;
@@ -76,7 +70,6 @@ export const setDocument = async (path, document, options = { merge: true }) => 
 export const deleteDocument = async (path) => {
     try {
         await deleteDoc(doc(db, ...path));
-        console.log(`Document deleted from ${path.join('/')}`);
     } catch (error) {
         console.error(`Error deleting document from ${path.join('/')}: `, error);
         throw error;
@@ -116,8 +109,6 @@ export const getCollectionIds = async (path) => {
         const collectionRef = collection(db, ...path);
         const collectionSnapshot = await collectionRef.get();
         const collectionArray = collectionSnapshot.docs.map(doc => doc.id);
-        console.log(`Collection data fetched from ${path.join('/')}`);
-        console.log(collectionArray)
         return collectionArray;
     } catch (error) {
         console.error(`Error getting collection from ${path.join('/')}: `, error);
