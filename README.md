@@ -11,6 +11,7 @@
 - [Testing](#testing)
 - [Building](#building)
 - [Deployment](#deployment)
+- [Offline Use](#offline-use)
 - [Created By](#created-by)
 
 ## Introduction
@@ -74,6 +75,9 @@ To build and deploy the project on firebase, run the following command:
     npm run deploy
 
 The app is currently deployed at [https://veryfunpokergame.web.app/](https://veryfunpokergame.web.app/)
+
+## Offline Use
+I have enabled the service worker and enabled local caching. However the app is still reliant on the deckofcardsapi.com API for card images and deck management. So unfortunately offline use is not available at this time.
     
 ## Created By
 
