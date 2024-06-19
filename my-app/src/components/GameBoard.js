@@ -41,6 +41,10 @@ export function GameBoard({ players, game }) {
     const isGameWaiting = game.phase === 0;
     const isGameStarted = game.phase === 1;
 
+    useEffect(() => {
+        setError('');
+    }, [gameId]);
+
     // Find player that matches uid and use to setPlayer
     useEffect(() => {
         players &&
@@ -79,6 +83,7 @@ export function GameBoard({ players, game }) {
     const deal = async () => {
         setIsLoading(true);
         try {
+            setError('');
             await Promise.all(players.map(async player => {
                 const cards = await drawCards(game.deckId, 5);
                 setRemainingCards(cards.remaining);
@@ -100,6 +105,7 @@ export function GameBoard({ players, game }) {
     const swapCards = async (cardIndexes) => {
         setIsLoading(true);
         try {
+            setError('');
             const newCards = await drawCards(game.deckId, cardsToSwap.length);
             setRemainingCards(newCards.remaining);
 
@@ -163,6 +169,7 @@ export function GameBoard({ players, game }) {
         results.message += `Winner: ${results.winner}`;
 
         try {
+            setError('');
             setIsLoading(true);
             await setDocument(['games', gameId], { ...game, phase: 2, results: results });
         } catch (error) {
@@ -185,6 +192,7 @@ export function GameBoard({ players, game }) {
         // If all players have taken their turn, end the game
         if (newTurn === players.length) {           
             try {
+                setError('');
                 setIsLoading(true);
                 await setDocument(['games', gameId], { ...game, gameStarted: false });
                 endGame();
@@ -197,6 +205,7 @@ export function GameBoard({ players, game }) {
         }
         else {
             try {
+                setError('');
                 setIsLoading(true);
                 await setDocument(['games', gameId], { ...game, turn: newTurn });
             } catch (error) {
