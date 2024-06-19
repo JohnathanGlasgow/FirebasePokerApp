@@ -31,6 +31,7 @@ To start the development server, run the following command:
     npm start
 
 ## Playing the game
+Choose a login option. Anonymous users are given a random name.
 
 Upon logging in, the Games dropdown will be open. Here you can create a new game or join an existing game.
 
