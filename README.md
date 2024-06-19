@@ -15,7 +15,7 @@
 
 ## Introduction
 
-This is a project to create a progressive web app for a a simple online Poker game with a React front end and a Firebase back end.
+This is a project to create a progressive web app for a simple online Poker game with a React front end and a Firebase back end.
 It is for the class ID730 Advanced App Dev at Otago Polytechnic.
 
 ## Installation
@@ -33,10 +33,15 @@ To start the development server, run the following command:
 ## Playing the game
 
 Upon logging in, the Games dropdown will be open. Here you can create a new game or join an existing game.
+
 If you are not currently in a game, you will be navigated to any game you create or join.
+
 Once all the players have joined, the game will begin when any player presses the "Start Game" button.
+
 If it is your turn, select the cards you want to swap out and press the "Swap Cards" button, then press the "End Turn" button.
+
 When all players have ended their turn, the game will end and the winner will be displayed.
+
 You can then start a new game or join an existing game.
 
 ## Testing
