@@ -14,7 +14,6 @@ export const getDeck = async () => {
     try {
         const response = await fetch('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1');
         const data = await response.json();
-        console.log('Deck ID:', data.deck_id);
         return data;
     } catch (error) {
         console.error('Failed to get deck:', error);
@@ -31,7 +30,6 @@ export const drawCards = async (deckId, count) => {
     try {
         const response = await fetch(`https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=${count}`);
         const data = await response.json();
-        console.log(`Drew ${count} cards from deck ${deckId}:`, data.cards.map(card => card.code));
         return data;
     } catch (error) {
         console.error(`Failed to draw ${count} cards:`, error);
@@ -48,7 +46,6 @@ export const getRemainingCards = async (deckId) => {
     try {
         const response = await fetch(`https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=0`);
         const data = await response.json();
-        console.log(`Remaining cards in deck ${deckId}:`, data.remaining);
         return data;
     } catch (error) {
         console.error(`Failed to get remaining cards:`, error);
