@@ -22,7 +22,7 @@ import LoadingSpinner from './LoadingSpinner.js';
  */
 export const GameListItem = ({ game, setGamePlayers }) => {
     const navigate = useNavigate();
-    const { uid, userName } = useAuth();
+    const { uid, userName, user } = useAuth();
     const { gameId } = useParams();
     const [isLoading, setIsLoading] = useState(false);
     const [players, setPlayers] = useState([]);
@@ -89,12 +89,17 @@ export const GameListItem = ({ game, setGamePlayers }) => {
      * @param {string} gameId - The ID of the game to leave.
      * @returns {Promise<void>} A promise that resolves when the user has left the game.
      */
-    const leaveGame = async (gameId) => {
+    const leaveGame = async (gameToLeaveId) => {
         setIsLoading(true);
-        const gamePath = ['games', gameId];
+        const gamePath = ['games', gameToLeaveId];
         const playerPath = [...gamePath, 'players', uid];
         try {
-            players?.length > 1 ? await deleteDocument(playerPath) : await deleteDocument(gamePath);
+            if (players?.length > 1) {
+                await deleteDocument(playerPath);
+            } else {
+                await deleteDocument(gamePath);              
+            }
+            gameToLeaveId === gameId && navigate(`/user/${user.uid}`);
         }
         catch (error) {
             console.error("Error leaving game: ", error);
