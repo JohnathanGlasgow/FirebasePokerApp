@@ -38,6 +38,8 @@ If you are not currently in a game, you will be navigated to any game you create
 
 Once all the players have joined, the game will begin when any player presses the "Start Game" button.
 
+There is a maximum of 5 players per game.
+
 If it is your turn, select the cards you want to swap out and press the "Swap Cards" button, then press the "End Turn" button.
 
 When all players have ended their turn, the game will end and the winner will be displayed.
