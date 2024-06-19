@@ -23,7 +23,8 @@ function LoginModal() {
     <Modal show={true} >
       <LoadingSpinner show={authLoading} />
       <Modal.Body>
-        <Modal.Header style={{ border: 'none', fontWeight: 'bold' }}>Login in with... </Modal.Header>
+        <Modal.Header style={{ border: 'none', fontWeight: 'bold' }}>Welcome to Very Fun Poker Game</Modal.Header>
+        <Modal.Body >Login with Google:</Modal.Body>
         <LoginProvidersCard />
         <Button variant="link" onClick={loginMethods.anon} style={{ fontStyle: 'italic', textDecoration: 'none' }}>...or login anonymously</Button>
       </Modal.Body>
