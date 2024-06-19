@@ -1,0 +1,440 @@
+[debug] [2024-06-19T03:12:42.936Z] ----------------------------------------------------------------------
+[debug] [2024-06-19T03:12:42.937Z] Command:       /opt/homebrew/Cellar/node/20.5.0/bin/node /opt/homebrew/bin/firebase emulators:start
+[debug] [2024-06-19T03:12:42.938Z] CLI Version:   13.11.2
+[debug] [2024-06-19T03:12:42.938Z] Platform:      darwin
+[debug] [2024-06-19T03:12:42.938Z] Node Version:  v20.5.0
+[debug] [2024-06-19T03:12:42.938Z] Time:          Wed Jun 19 2024 15:12:42 GMT+1200 (New Zealand Standard Time)
+[debug] [2024-06-19T03:12:42.938Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-06-19T03:12:42.993Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-06-19T03:12:42.993Z] > authorizing via signed-in user (malusdomestica86@gmail.com)
+[debug] [2024-06-19T03:12:43.380Z] java version "22.0.1" 2024-04-16
+
+[debug] [2024-06-19T03:12:43.381Z] Java(TM) SE Runtime Environment (build 22.0.1+8-16)
+Java HotSpot(TM) 64-Bit Server VM (build 22.0.1+8-16, mixed mode, sharing)
+
+[debug] [2024-06-19T03:12:43.383Z] Parsed Java major version: 22
+[info] i  emulators: Starting emulators: auth, firestore, hosting {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth, firestore, hosting"}}
+[debug] [2024-06-19T03:12:44.089Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-06-19T03:12:44.089Z] [auth] Authentication Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-06-19T03:12:44.089Z] [firestore] Firestore Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-06-19T03:12:44.089Z] [firestore.websocket] websocket server for firestore only supports listening on one address (127.0.0.1). Not listening on ::1
+[warn] ⚠  hosting: Hosting Emulator unable to start on port 5000, starting on 5002 instead. {"metadata":{"emulator":{"name":"hosting"},"message":"Hosting Emulator unable to start on port 5000, starting on 5002 instead."}}
+[debug] [2024-06-19T03:12:44.089Z] [hosting] Hosting Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-06-19T03:12:44.089Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"auth":[{"address":"127.0.0.1","family":"IPv4","port":9099}],"firestore":[{"address":"127.0.0.1","family":"IPv4","port":8080}],"firestore.websocket":[{"address":"127.0.0.1","family":"IPv4","port":9150}],"hosting":[{"address":"127.0.0.1","family":"IPv4","port":5002}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2024-06-19T03:12:44.092Z] [hub] writing locator at /var/folders/_c/vfh7cg756352vzprkt_qn2hc0000gn/T/hub-veryfunpokergame.json
+[info] i  firestore: downloading cloud-firestore-emulator-v1.19.7.jar... {"metadata":{"emulator":{"name":"firestore"},"message":"downloading cloud-firestore-emulator-v1.19.7.jar..."}}
+[debug] [2024-06-19T03:12:44.097Z] >>> [apiv2][query] GET https://storage.googleapis.com/firebase-preview-drop/emulator/cloud-firestore-emulator-v1.19.7.jar 
+[debug] [2024-06-19T03:12:44.581Z] <<< [apiv2][status] GET https://storage.googleapis.com/firebase-preview-drop/emulator/cloud-firestore-emulator-v1.19.7.jar 200
+[debug] [2024-06-19T03:12:44.581Z] <<< [apiv2][body] GET https://storage.googleapis.com/firebase-preview-drop/emulator/cloud-firestore-emulator-v1.19.7.jar [stream]
+[info] i  firestore: Removing outdated emulator files: cloud-firestore-emulator-v1.19.2.jar {"metadata":{"emulator":{"name":"firestore"},"message":"Removing outdated emulator files: cloud-firestore-emulator-v1.19.2.jar"}}
+[debug] [2024-06-19T03:12:47.618Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2024-06-19T03:12:47.620Z] Ignoring unsupported arg: single_project_mode_error {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: single_project_mode_error"}}
+[debug] [2024-06-19T03:12:47.620Z] Starting Firestore Emulator with command {"binary":"java","args":["-Dgoogle.cloud_firestore.debug_log_level=FINE","-Duser.language=en","-jar","/Users/johnathanglasgow/.cache/firebase/emulators/cloud-firestore-emulator-v1.19.7.jar","--host","127.0.0.1","--port",8080,"--websocket_port",9150,"--project_id","veryfunpokergame","--rules","/Users/johnathanglasgow/Documents/polytech_repos/project-24s1-JohnathanGlasgow/my-app/firestore.rules","--single_project_mode",true],"optionalArgs":["port","webchannel_port","host","rules","websocket_port","functions_emulator","seed_from_export","project_id","single_project_mode"],"joinArgs":false,"shell":false} {"metadata":{"emulator":{"name":"firestore"},"message":"Starting Firestore Emulator with command {\"binary\":\"java\",\"args\":[\"-Dgoogle.cloud_firestore.debug_log_level=FINE\",\"-Duser.language=en\",\"-jar\",\"/Users/johnathanglasgow/.cache/firebase/emulators/cloud-firestore-emulator-v1.19.7.jar\",\"--host\",\"127.0.0.1\",\"--port\",8080,\"--websocket_port\",9150,\"--project_id\",\"veryfunpokergame\",\"--rules\",\"/Users/johnathanglasgow/Documents/polytech_repos/project-24s1-JohnathanGlasgow/my-app/firestore.rules\",\"--single_project_mode\",true],\"optionalArgs\":[\"port\",\"webchannel_port\",\"host\",\"rules\",\"websocket_port\",\"functions_emulator\",\"seed_from_export\",\"project_id\",\"single_project_mode\"],\"joinArgs\":false,\"shell\":false}"}}
+[info] i  firestore: Firestore Emulator logging to firestore-debug.log {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator logging to \u001b[1mfirestore-debug.log\u001b[22m"}}
+[debug] [2024-06-19T03:12:48.293Z] Jun 19, 2024 3:12:48 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketServer start
+INFO: Started WebSocket server on ws://127.0.0.1:9150
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jun 19, 2024 3:12:48 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketServer start\nINFO: Started WebSocket server on ws://127.0.0.1:9150\n"}}
+[debug] [2024-06-19T03:12:48.303Z] API endpoint: http:// {"metadata":{"emulator":{"name":"firestore"},"message":"API endpoint: http://"}}
+[debug] [2024-06-19T03:12:48.303Z] 127.0.0.1:8080
+If you are using a library that supports the FIRESTORE_EMULATOR_HOST environment variable, run:
+
+   export FIRESTORE_EMULATOR_HOST=127.0.0.1:8080
+
+If you are running a Firestore in Datastore Mode project, run:
+
+   export DATASTORE_EMULATOR_HOST=127.0.0.1:8080
+
+Note: Support for Datastore Mode is in preview. If you encounter any bugs please file at https://github.com/firebase/firebase-tools/issues.
+Dev App Server is now running.
+
+ {"metadata":{"emulator":{"name":"firestore"},"message":"127.0.0.1:8080\nIf you are using a library that supports the FIRESTORE_EMULATOR_HOST environment variable, run:\n\n   export FIRESTORE_EMULATOR_HOST=127.0.0.1:8080\n\nIf you are running a Firestore in Datastore Mode project, run:\n\n   export DATASTORE_EMULATOR_HOST=127.0.0.1:8080\n\nNote: Support for Datastore Mode is in preview. If you encounter any bugs please file at https://github.com/firebase/firebase-tools/issues.\nDev App Server is now running.\n\n"}}
+[info] ✔  firestore: Firestore Emulator UI websocket is running on 9150. {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator UI websocket is running on 9150."}}
+[debug] [2024-06-19T03:12:51.301Z] > refreshing access token with scopes: []
+[debug] [2024-06-19T03:12:51.302Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-06-19T03:12:51.302Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-06-19T03:12:51.686Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2024-06-19T03:12:51.686Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-06-19T03:12:51.703Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/veryfunpokergame/sites 
+[debug] [2024-06-19T03:12:53.272Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/veryfunpokergame/sites 200
+[debug] [2024-06-19T03:12:53.272Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/veryfunpokergame/sites {"sites":[{"name":"projects/veryfunpokergame/sites/veryfunpokergame","defaultUrl":"https://veryfunpokergame.web.app","appId":"1:318963374288:web:938185259f54722c2fe6d5","type":"DEFAULT_SITE"}]}
+[debug] [2024-06-19T03:12:53.272Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/veryfunpokergame/webApps/1:318963374288:web:938185259f54722c2fe6d5/config [none]
+[debug] [2024-06-19T03:12:54.467Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/veryfunpokergame/webApps/1:318963374288:web:938185259f54722c2fe6d5/config 200
+[debug] [2024-06-19T03:12:54.467Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/veryfunpokergame/webApps/1:318963374288:web:938185259f54722c2fe6d5/config {"projectId":"veryfunpokergame","appId":"1:318963374288:web:938185259f54722c2fe6d5","databaseURL":"https://veryfunpokergame-default-rtdb.firebaseio.com","storageBucket":"veryfunpokergame.appspot.com","apiKey":"AIzaSyBQZSetVpYAeT0WByxdbI5ftJucuuKfUIs","authDomain":"veryfunpokergame.firebaseapp.com","messagingSenderId":"318963374288"}
+[debug] [2024-06-19T03:12:54.475Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/veryfunpokergame [none]
+[debug] [2024-06-19T03:12:55.140Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/veryfunpokergame 200
+[debug] [2024-06-19T03:12:55.141Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/veryfunpokergame {"projectId":"veryfunpokergame","projectNumber":"318963374288","displayName":"VeryFunPokerGame","name":"projects/veryfunpokergame","resources":{"hostingSite":"veryfunpokergame","realtimeDatabaseInstance":"veryfunpokergame-default-rtdb"},"state":"ACTIVE","etag":"1_b0e94aa0-ff77-4c69-a2be-8a49e371a9c3"}
+[info] i  hosting[veryfunpokergame]: Serving hosting files from: build {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mbuild\u001b[22m"}}
+[info] ✔  hosting[veryfunpokergame]: Local server: http://127.0.0.1:5002 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://127.0.0.1:5002\u001b[22m\u001b[24m"}}
+[info] i  ui: downloading ui-v1.12.1.zip... {"metadata":{"emulator":{"name":"ui"},"message":"downloading ui-v1.12.1.zip..."}}
+[debug] [2024-06-19T03:12:55.237Z] >>> [apiv2][query] GET https://storage.googleapis.com/firebase-preview-drop/emulator/ui-v1.12.1.zip 
+[debug] [2024-06-19T03:12:55.679Z] <<< [apiv2][status] GET https://storage.googleapis.com/firebase-preview-drop/emulator/ui-v1.12.1.zip 200
+[debug] [2024-06-19T03:12:55.680Z] <<< [apiv2][body] GET https://storage.googleapis.com/firebase-preview-drop/emulator/ui-v1.12.1.zip [stream]
+[debug] [2024-06-19T03:12:56.135Z] Data is 3498269
+[debug] [2024-06-19T03:12:56.135Z] [unzip] Entry: client/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2024-06-19T03:12:56.136Z] [unzip] Processing entry: client/
+[debug] [2024-06-19T03:12:56.136Z] [unzip] mkdir: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/
+[debug] [2024-06-19T03:12:56.136Z] [unzip] Entry: client/favicon.ico (compressed_size=2933 bytes, uncompressed_size=13294 bytes)
+[debug] [2024-06-19T03:12:56.137Z] [unzip] Processing entry: client/favicon.ico
+[debug] [2024-06-19T03:12:56.137Z] [unzip] else mkdir: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client
+[debug] [2024-06-19T03:12:56.137Z] [unzip] deflating: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/favicon.ico
+[debug] [2024-06-19T03:12:56.140Z] [unzip] Entry: client/mstile-150x150.png (compressed_size=2034 bytes, uncompressed_size=2034 bytes)
+[debug] [2024-06-19T03:12:56.140Z] [unzip] Processing entry: client/mstile-150x150.png
+[debug] [2024-06-19T03:12:56.140Z] [unzip] else mkdir: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client
+[debug] [2024-06-19T03:12:56.140Z] [unzip] Writing file: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/mstile-150x150.png
+[debug] [2024-06-19T03:12:56.140Z] [unzip] Entry: client/favicon-16x16.png (compressed_size=293 bytes, uncompressed_size=293 bytes)
+[debug] [2024-06-19T03:12:56.140Z] [unzip] Processing entry: client/favicon-16x16.png
+[debug] [2024-06-19T03:12:56.140Z] [unzip] else mkdir: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client
+[debug] [2024-06-19T03:12:56.140Z] [unzip] Writing file: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/favicon-16x16.png
+[debug] [2024-06-19T03:12:56.141Z] [unzip] Entry: client/favicon-32x32.png (compressed_size=475 bytes, uncompressed_size=475 bytes)
+[debug] [2024-06-19T03:12:56.141Z] [unzip] Processing entry: client/favicon-32x32.png
+[debug] [2024-06-19T03:12:56.141Z] [unzip] else mkdir: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client
+[debug] [2024-06-19T03:12:56.141Z] [unzip] Writing file: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/favicon-32x32.png
+[debug] [2024-06-19T03:12:56.141Z] [unzip] Entry: client/manifest.json (compressed_size=245 bytes, uncompressed_size=551 bytes)
+[debug] [2024-06-19T03:12:56.141Z] [unzip] Processing entry: client/manifest.json
+[debug] [2024-06-19T03:12:56.141Z] [unzip] else mkdir: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client
+[debug] [2024-06-19T03:12:56.141Z] [unzip] deflating: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/manifest.json
+[debug] [2024-06-19T03:12:56.142Z] [unzip] Entry: client/index.html (compressed_size=1365 bytes, uncompressed_size=3071 bytes)
+[debug] [2024-06-19T03:12:56.142Z] [unzip] Processing entry: client/index.html
+[debug] [2024-06-19T03:12:56.142Z] [unzip] else mkdir: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client
+[debug] [2024-06-19T03:12:56.142Z] [unzip] deflating: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/index.html
+[debug] [2024-06-19T03:12:56.142Z] [unzip] Entry: client/robots.txt (compressed_size=26 bytes, uncompressed_size=26 bytes)
+[debug] [2024-06-19T03:12:56.142Z] [unzip] Processing entry: client/robots.txt
+[debug] [2024-06-19T03:12:56.142Z] [unzip] else mkdir: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client
+[debug] [2024-06-19T03:12:56.143Z] [unzip] Writing file: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/robots.txt
+[debug] [2024-06-19T03:12:56.143Z] [unzip] Entry: client/android-chrome-512x512.png (compressed_size=5369 bytes, uncompressed_size=5411 bytes)
+[debug] [2024-06-19T03:12:56.143Z] [unzip] Processing entry: client/android-chrome-512x512.png
+[debug] [2024-06-19T03:12:56.143Z] [unzip] else mkdir: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client
+[debug] [2024-06-19T03:12:56.143Z] [unzip] deflating: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/android-chrome-512x512.png
+[debug] [2024-06-19T03:12:56.143Z] [unzip] Entry: client/assets/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2024-06-19T03:12:56.143Z] [unzip] Processing entry: client/assets/
+[debug] [2024-06-19T03:12:56.143Z] [unzip] mkdir: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/assets/
+[debug] [2024-06-19T03:12:56.143Z] [unzip] Entry: client/assets/img/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2024-06-19T03:12:56.143Z] [unzip] Processing entry: client/assets/img/
+[debug] [2024-06-19T03:12:56.143Z] [unzip] mkdir: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/assets/img/
+[debug] [2024-06-19T03:12:56.144Z] [unzip] Entry: client/assets/img/database.png (compressed_size=29449 bytes, uncompressed_size=29988 bytes)
+[debug] [2024-06-19T03:12:56.144Z] [unzip] Processing entry: client/assets/img/database.png
+[debug] [2024-06-19T03:12:56.144Z] [unzip] else mkdir: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/assets/img
+[debug] [2024-06-19T03:12:56.144Z] [unzip] deflating: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/assets/img/database.png
+[debug] [2024-06-19T03:12:56.144Z] [unzip] Entry: client/assets/provider-icons/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2024-06-19T03:12:56.144Z] [unzip] Processing entry: client/assets/provider-icons/
+[debug] [2024-06-19T03:12:56.144Z] [unzip] mkdir: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/assets/provider-icons/
+[debug] [2024-06-19T03:12:56.144Z] [unzip] Entry: client/assets/provider-icons/auth_service_play_games.svg (compressed_size=565 bytes, uncompressed_size=1173 bytes)
+[debug] [2024-06-19T03:12:56.144Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_play_games.svg
+[debug] [2024-06-19T03:12:56.144Z] [unzip] else mkdir: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/assets/provider-icons
+[debug] [2024-06-19T03:12:56.145Z] [unzip] deflating: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/assets/provider-icons/auth_service_play_games.svg
+[debug] [2024-06-19T03:12:56.145Z] [unzip] Entry: client/assets/provider-icons/auth_service_game_center.svg (compressed_size=991 bytes, uncompressed_size=3921 bytes)
+[debug] [2024-06-19T03:12:56.145Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_game_center.svg
+[debug] [2024-06-19T03:12:56.145Z] [unzip] else mkdir: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/assets/provider-icons
+[debug] [2024-06-19T03:12:56.146Z] [unzip] deflating: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/assets/provider-icons/auth_service_game_center.svg
+[debug] [2024-06-19T03:12:56.146Z] [unzip] Entry: client/assets/provider-icons/auth_service_google.svg (compressed_size=409 bytes, uncompressed_size=720 bytes)
+[debug] [2024-06-19T03:12:56.146Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_google.svg
+[debug] [2024-06-19T03:12:56.146Z] [unzip] else mkdir: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/assets/provider-icons
+[debug] [2024-06-19T03:12:56.146Z] [unzip] deflating: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/assets/provider-icons/auth_service_google.svg
+[debug] [2024-06-19T03:12:56.147Z] [unzip] Entry: client/assets/provider-icons/auth_service_yahoo.svg (compressed_size=577 bytes, uncompressed_size=1182 bytes)
+[debug] [2024-06-19T03:12:56.147Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_yahoo.svg
+[debug] [2024-06-19T03:12:56.147Z] [unzip] else mkdir: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/assets/provider-icons
+[debug] [2024-06-19T03:12:56.147Z] [unzip] deflating: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/assets/provider-icons/auth_service_yahoo.svg
+[debug] [2024-06-19T03:12:56.147Z] [unzip] Entry: client/assets/provider-icons/auth_service_email.svg (compressed_size=228 bytes, uncompressed_size=326 bytes)
+[debug] [2024-06-19T03:12:56.147Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_email.svg
+[debug] [2024-06-19T03:12:56.147Z] [unzip] else mkdir: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/assets/provider-icons
+[debug] [2024-06-19T03:12:56.147Z] [unzip] deflating: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/assets/provider-icons/auth_service_email.svg
+[debug] [2024-06-19T03:12:56.148Z] [unzip] Entry: client/assets/provider-icons/auth_service_saml.svg (compressed_size=575 bytes, uncompressed_size=1226 bytes)
+[debug] [2024-06-19T03:12:56.148Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_saml.svg
+[debug] [2024-06-19T03:12:56.148Z] [unzip] else mkdir: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/assets/provider-icons
+[debug] [2024-06-19T03:12:56.148Z] [unzip] deflating: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/assets/provider-icons/auth_service_saml.svg
+[debug] [2024-06-19T03:12:56.148Z] [unzip] Entry: client/assets/provider-icons/auth_service_oidc.svg (compressed_size=414 bytes, uncompressed_size=858 bytes)
+[debug] [2024-06-19T03:12:56.148Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_oidc.svg
+[debug] [2024-06-19T03:12:56.148Z] [unzip] else mkdir: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/assets/provider-icons
+[debug] [2024-06-19T03:12:56.148Z] [unzip] deflating: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/assets/provider-icons/auth_service_oidc.svg
+[debug] [2024-06-19T03:12:56.148Z] [unzip] Entry: client/assets/provider-icons/auth_service_facebook.svg (compressed_size=289 bytes, uncompressed_size=457 bytes)
+[debug] [2024-06-19T03:12:56.148Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_facebook.svg
+[debug] [2024-06-19T03:12:56.148Z] [unzip] else mkdir: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/assets/provider-icons
+[debug] [2024-06-19T03:12:56.149Z] [unzip] deflating: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/assets/provider-icons/auth_service_facebook.svg
+[debug] [2024-06-19T03:12:56.149Z] [unzip] Entry: client/assets/provider-icons/auth_service_github.svg (compressed_size=466 bytes, uncompressed_size=838 bytes)
+[debug] [2024-06-19T03:12:56.149Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_github.svg
+[debug] [2024-06-19T03:12:56.149Z] [unzip] else mkdir: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/assets/provider-icons
+[debug] [2024-06-19T03:12:56.149Z] [unzip] deflating: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/assets/provider-icons/auth_service_github.svg
+[debug] [2024-06-19T03:12:56.149Z] [unzip] Entry: client/assets/provider-icons/auth_service_phone.svg (compressed_size=261 bytes, uncompressed_size=414 bytes)
+[debug] [2024-06-19T03:12:56.149Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_phone.svg
+[debug] [2024-06-19T03:12:56.149Z] [unzip] else mkdir: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/assets/provider-icons
+[debug] [2024-06-19T03:12:56.150Z] [unzip] deflating: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/assets/provider-icons/auth_service_phone.svg
+[debug] [2024-06-19T03:12:56.150Z] [unzip] Entry: client/assets/provider-icons/auth_service_apple.svg (compressed_size=230 bytes, uncompressed_size=334 bytes)
+[debug] [2024-06-19T03:12:56.150Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_apple.svg
+[debug] [2024-06-19T03:12:56.150Z] [unzip] else mkdir: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/assets/provider-icons
+[debug] [2024-06-19T03:12:56.150Z] [unzip] deflating: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/assets/provider-icons/auth_service_apple.svg
+[debug] [2024-06-19T03:12:56.150Z] [unzip] Entry: client/assets/provider-icons/auth_service_twitter.svg (compressed_size=444 bytes, uncompressed_size=751 bytes)
+[debug] [2024-06-19T03:12:56.150Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_twitter.svg
+[debug] [2024-06-19T03:12:56.150Z] [unzip] else mkdir: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/assets/provider-icons
+[debug] [2024-06-19T03:12:56.150Z] [unzip] deflating: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/assets/provider-icons/auth_service_twitter.svg
+[debug] [2024-06-19T03:12:56.151Z] [unzip] Entry: client/assets/provider-icons/auth_service_mslive.svg (compressed_size=203 bytes, uncompressed_size=378 bytes)
+[debug] [2024-06-19T03:12:56.151Z] [unzip] Processing entry: client/assets/provider-icons/auth_service_mslive.svg
+[debug] [2024-06-19T03:12:56.151Z] [unzip] else mkdir: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/assets/provider-icons
+[debug] [2024-06-19T03:12:56.151Z] [unzip] deflating: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/assets/provider-icons/auth_service_mslive.svg
+[debug] [2024-06-19T03:12:56.152Z] [unzip] Entry: client/assets/extensions/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2024-06-19T03:12:56.152Z] [unzip] Processing entry: client/assets/extensions/
+[debug] [2024-06-19T03:12:56.152Z] [unzip] mkdir: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/assets/extensions/
+[debug] [2024-06-19T03:12:56.152Z] [unzip] Entry: client/assets/extensions/default-extension.png (compressed_size=1646 bytes, uncompressed_size=1657 bytes)
+[debug] [2024-06-19T03:12:56.152Z] [unzip] Processing entry: client/assets/extensions/default-extension.png
+[debug] [2024-06-19T03:12:56.152Z] [unzip] else mkdir: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/assets/extensions
+[debug] [2024-06-19T03:12:56.152Z] [unzip] deflating: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/assets/extensions/default-extension.png
+[debug] [2024-06-19T03:12:56.152Z] [unzip] Entry: client/assets/index-Cj5I7867.css (compressed_size=35786 bytes, uncompressed_size=297937 bytes)
+[debug] [2024-06-19T03:12:56.152Z] [unzip] Processing entry: client/assets/index-Cj5I7867.css
+[debug] [2024-06-19T03:12:56.152Z] [unzip] else mkdir: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/assets
+[debug] [2024-06-19T03:12:56.152Z] [unzip] deflating: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/assets/index-Cj5I7867.css
+[debug] [2024-06-19T03:12:56.153Z] [unzip] Entry: client/assets/index-JXEx31eZ.js (compressed_size=563896 bytes, uncompressed_size=2020866 bytes)
+[debug] [2024-06-19T03:12:56.153Z] [unzip] Processing entry: client/assets/index-JXEx31eZ.js
+[debug] [2024-06-19T03:12:56.153Z] [unzip] else mkdir: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/assets
+[debug] [2024-06-19T03:12:56.153Z] [unzip] deflating: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/assets/index-JXEx31eZ.js
+[debug] [2024-06-19T03:12:56.162Z] [unzip] Entry: client/assets/index-JXEx31eZ.js.map (compressed_size=2229196 bytes, uncompressed_size=9596104 bytes)
+[debug] [2024-06-19T03:12:56.162Z] [unzip] Processing entry: client/assets/index-JXEx31eZ.js.map
+[debug] [2024-06-19T03:12:56.162Z] [unzip] else mkdir: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/assets
+[debug] [2024-06-19T03:12:56.162Z] [unzip] deflating: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/assets/index-JXEx31eZ.js.map
+[debug] [2024-06-19T03:12:56.194Z] [unzip] Entry: client/safari-pinned-tab.svg (compressed_size=1433 bytes, uncompressed_size=2611 bytes)
+[debug] [2024-06-19T03:12:56.195Z] [unzip] Processing entry: client/safari-pinned-tab.svg
+[debug] [2024-06-19T03:12:56.195Z] [unzip] else mkdir: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client
+[debug] [2024-06-19T03:12:56.195Z] [unzip] deflating: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/safari-pinned-tab.svg
+[debug] [2024-06-19T03:12:56.195Z] [unzip] Entry: client/browserconfig.xml (compressed_size=491 bytes, uncompressed_size=822 bytes)
+[debug] [2024-06-19T03:12:56.195Z] [unzip] Processing entry: client/browserconfig.xml
+[debug] [2024-06-19T03:12:56.195Z] [unzip] else mkdir: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client
+[debug] [2024-06-19T03:12:56.195Z] [unzip] deflating: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/browserconfig.xml
+[debug] [2024-06-19T03:12:56.195Z] [unzip] Entry: client/android-chrome-192x192.png (compressed_size=2684 bytes, uncompressed_size=2684 bytes)
+[debug] [2024-06-19T03:12:56.195Z] [unzip] Processing entry: client/android-chrome-192x192.png
+[debug] [2024-06-19T03:12:56.196Z] [unzip] else mkdir: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client
+[debug] [2024-06-19T03:12:56.196Z] [unzip] Writing file: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/android-chrome-192x192.png
+[debug] [2024-06-19T03:12:56.196Z] [unzip] Entry: client/apple-touch-icon.png (compressed_size=2123 bytes, uncompressed_size=2152 bytes)
+[debug] [2024-06-19T03:12:56.196Z] [unzip] Processing entry: client/apple-touch-icon.png
+[debug] [2024-06-19T03:12:56.196Z] [unzip] else mkdir: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client
+[debug] [2024-06-19T03:12:56.196Z] [unzip] deflating: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/client/apple-touch-icon.png
+[debug] [2024-06-19T03:12:56.196Z] [unzip] Entry: server/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2024-06-19T03:12:56.196Z] [unzip] Processing entry: server/
+[debug] [2024-06-19T03:12:56.196Z] [unzip] mkdir: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/server/
+[debug] [2024-06-19T03:12:56.196Z] [unzip] Entry: server/server.mjs.map (compressed_size=286219 bytes, uncompressed_size=1310517 bytes)
+[debug] [2024-06-19T03:12:56.196Z] [unzip] Processing entry: server/server.mjs.map
+[debug] [2024-06-19T03:12:56.196Z] [unzip] else mkdir: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/server
+[debug] [2024-06-19T03:12:56.196Z] [unzip] deflating: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/server/server.mjs.map
+[debug] [2024-06-19T03:12:56.201Z] [unzip] Entry: server/assets/ (compressed_size=0 bytes, uncompressed_size=0 bytes)
+[debug] [2024-06-19T03:12:56.201Z] [unzip] Processing entry: server/assets/
+[debug] [2024-06-19T03:12:56.201Z] [unzip] mkdir: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/server/assets/
+[debug] [2024-06-19T03:12:56.201Z] [unzip] Entry: server/assets/multipart-parser-n20ATYm_.mjs.map (compressed_size=4790 bytes, uncompressed_size=17920 bytes)
+[debug] [2024-06-19T03:12:56.201Z] [unzip] Processing entry: server/assets/multipart-parser-n20ATYm_.mjs.map
+[debug] [2024-06-19T03:12:56.201Z] [unzip] else mkdir: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/server/assets
+[debug] [2024-06-19T03:12:56.201Z] [unzip] deflating: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/server/assets/multipart-parser-n20ATYm_.mjs.map
+[debug] [2024-06-19T03:12:56.201Z] [unzip] Entry: server/assets/multipart-parser-n20ATYm_.mjs (compressed_size=2625 bytes, uncompressed_size=10428 bytes)
+[debug] [2024-06-19T03:12:56.201Z] [unzip] Processing entry: server/assets/multipart-parser-n20ATYm_.mjs
+[debug] [2024-06-19T03:12:56.201Z] [unzip] else mkdir: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/server/assets
+[debug] [2024-06-19T03:12:56.201Z] [unzip] deflating: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/server/assets/multipart-parser-n20ATYm_.mjs
+[debug] [2024-06-19T03:12:56.202Z] [unzip] Entry: server/server.mjs (compressed_size=311497 bytes, uncompressed_size=1147307 bytes)
+[debug] [2024-06-19T03:12:56.202Z] [unzip] Processing entry: server/server.mjs
+[debug] [2024-06-19T03:12:56.202Z] [unzip] else mkdir: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/server
+[debug] [2024-06-19T03:12:56.202Z] [unzip] deflating: /Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/server/server.mjs
+[info] i  ui: Removing outdated emulator files: ui-v1.11.7 {"metadata":{"emulator":{"name":"ui"},"message":"Removing outdated emulator files: ui-v1.11.7"}}
+[info] i  ui: Removing outdated emulator files: ui-v1.11.7.zip {"metadata":{"emulator":{"name":"ui"},"message":"Removing outdated emulator files: ui-v1.11.7.zip"}}
+[debug] [2024-06-19T03:12:56.211Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2024-06-19T03:12:56.211Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2024-06-19T03:12:56.211Z] Starting Emulator UI with command {"binary":"node","args":["/Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/server/server.mjs"],"optionalArgs":[],"joinArgs":false,"shell":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"/Users/johnathanglasgow/.cache/firebase/emulators/ui-v1.12.1/server/server.mjs\"],\"optionalArgs\":[],\"joinArgs\":false,\"shell\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2024-06-19T03:12:56.290Z] Web / API server started at 127.0.0.1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at 127.0.0.1:4000\n"}}
+[debug] [2024-06-19T03:12:56.290Z] Web / API server started at ::1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at ::1:4000\n"}}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌────────────────┬────────────────┬─────────────────────────────────┐
+│ Emulator       │ Host:Port      │ View in Emulator UI             │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Authentication │ 127.0.0.1:9099 │ http://127.0.0.1:4000/auth      │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Firestore      │ 127.0.0.1:8080 │ http://127.0.0.1:4000/firestore │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Hosting        │ 127.0.0.1:5002 │ n/a                             │
+└────────────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub running at 127.0.0.1:4400
+  Other reserved ports: 4500, 9150
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[info] i  firestore: Change detected, updating rules... 
+[debug] [2024-06-19T03:41:54.307Z] >>> [apiv2][query] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules [none]
+[debug] [2024-06-19T03:41:54.307Z] >>> [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {"ignore_errors":true,"rules":{"files":[{"name":"security.rules","content":"rules_version = '2';\nservice cloud.firestore {\n  match /databases/{database}/documents {\n    // Match the user document\n    match /users/{userId}/{document=**} {\n      // Allow the user to read/write their own documents at any depth\n      allow read, write: if request.auth != null && request.auth.uid == userId;\n    }\n    \n    // Match the games collection\n    // allows all users to create and delete games\n    match /games/{gameId} {\n      // Allow authenticated users to write\n      allow read, create, update: if request.auth != null;\n      allow delete: if request.auth != null && exists(/databases/$(database)/documents/games/$(gameId)/players/$(request.auth.uid));\n      }\n    \n    // Match the games/{gameId}/players collection\n    // allows all users to add themselves to the game\n    match /games/{gameId}/players/{playerId} {\n      // Allow authenticated users to write\n      allow read, create, update: if request.auth != null;\n      allow delete: if request.auth.uid == playerId;\n      }\n\n  }\n}"}]}}
+[debug] [2024-06-19T03:41:54.327Z] Jun 19, 2024 3:41:54 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jun 19, 2024 3:41:54 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2024-06-19T03:41:54.439Z] Jun 19, 2024 3:41:54 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jun 19, 2024 3:41:54 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected HTTP/2 connection.\n"}}
+[debug] [2024-06-19T03:41:54.741Z] <<< [apiv2][status] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules 200
+[debug] [2024-06-19T03:41:54.741Z] <<< [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {}
+[info] ✔  firestore: Rules updated. 
+[info] i  firestore: Change detected, updating rules... 
+[debug] [2024-06-19T03:42:12.480Z] >>> [apiv2][query] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules [none]
+[debug] [2024-06-19T03:42:12.480Z] >>> [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {"ignore_errors":true,"rules":{"files":[{"name":"security.rules","content":"rules_version = '2';\nservice cloud.firestore {\n  match /databases/{database}/documents {\n    // Match the user document\n    match /users/{userId}/{document=**} {\n      // Allow the user to read/write their own documents at any depth\n      allow read, write: if request.auth != null && request.auth.uid == userId;\n    }\n    \n    // Match the games collection\n    \n    match /games/{gameId} {\n      // Allow authenticated users to write\n      allow read, create, update: if request.auth != null;\n      allow delete: if request.auth != null && exists(/databases/$(database)/documents/games/$(gameId)/players/$(request.auth.uid));\n      }\n    \n    // Match the games/{gameId}/players collection\n    // allows all users to add themselves to the game\n    match /games/{gameId}/players/{playerId} {\n      // Allow authenticated users to write\n      allow read, create, update: if request.auth != null;\n      allow delete: if request.auth.uid == playerId;\n      }\n\n  }\n}"}]}}
+[debug] [2024-06-19T03:42:12.482Z] Jun 19, 2024 3:42:12 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jun 19, 2024 3:42:12 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2024-06-19T03:42:12.504Z] <<< [apiv2][status] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules 200
+[debug] [2024-06-19T03:42:12.504Z] <<< [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {}
+[info] ✔  firestore: Rules updated. 
+[info] i  firestore: Change detected, updating rules... 
+[debug] [2024-06-19T03:42:14.479Z] >>> [apiv2][query] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules [none]
+[debug] [2024-06-19T03:42:14.479Z] >>> [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {"ignore_errors":true,"rules":{"files":[{"name":"security.rules","content":"rules_version = '2';\nservice cloud.firestore {\n  match /databases/{database}/documents {\n    // Match the user document\n    match /users/{userId}/{document=**} {\n      // Allow the user to read/write their own documents at any depth\n      allow read, write: if request.auth != null && request.auth.uid == userId;\n    }\n    \n    // Match the games collection\n    match /games/{gameId} {\n      // Allow authenticated users to write\n      allow read, create, update: if request.auth != null;\n      allow delete: if request.auth != null && exists(/databases/$(database)/documents/games/$(gameId)/players/$(request.auth.uid));\n      }\n    \n    // Match the games/{gameId}/players collection\n    // allows all users to add themselves to the game\n    match /games/{gameId}/players/{playerId} {\n      // Allow authenticated users to write\n      allow read, create, update: if request.auth != null;\n      allow delete: if request.auth.uid == playerId;\n      }\n\n  }\n}"}]}}
+[debug] [2024-06-19T03:42:14.497Z] <<< [apiv2][status] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules 200
+[debug] [2024-06-19T03:42:14.497Z] <<< [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {}
+[info] ✔  firestore: Rules updated. 
+[info] i  firestore: Change detected, updating rules... 
+[debug] [2024-06-19T03:42:22.528Z] >>> [apiv2][query] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules [none]
+[debug] [2024-06-19T03:42:22.528Z] >>> [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {"ignore_errors":true,"rules":{"files":[{"name":"security.rules","content":"rules_version = '2';\nservice cloud.firestore {\n  match /databases/{database}/documents {\n    // Match the user document\n    match /users/{userId}/{document=**} {\n      // Allow the user to read/write their own documents at any depth\n      allow read, write: if request.auth != null && request.auth.uid == userId;\n    }\n    \n    // Match the games collection\n    match /games/{gameId} {\n      // // allows all users to create and delete games\n      allow read, create, update: if request.auth != null;\n      allow delete: if request.auth != null && exists(/databases/$(database)/documents/games/$(gameId)/players/$(request.auth.uid));\n      }\n    \n    // Match the games/{gameId}/players collection\n    // allows all users to add themselves to the game\n    match /games/{gameId}/players/{playerId} {\n      // Allow authenticated users to write\n      allow read, create, update: if request.auth != null;\n      allow delete: if request.auth.uid == playerId;\n      }\n\n  }\n}"}]}}
+[debug] [2024-06-19T03:42:22.530Z] Jun 19, 2024 3:42:22 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jun 19, 2024 3:42:22 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2024-06-19T03:42:22.549Z] <<< [apiv2][status] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules 200
+[debug] [2024-06-19T03:42:22.550Z] <<< [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {}
+[info] ✔  firestore: Rules updated. 
+[info] i  firestore: Change detected, updating rules... 
+[debug] [2024-06-19T03:42:25.852Z] >>> [apiv2][query] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules [none]
+[debug] [2024-06-19T03:42:25.852Z] >>> [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {"ignore_errors":true,"rules":{"files":[{"name":"security.rules","content":"rules_version = '2';\nservice cloud.firestore {\n  match /databases/{database}/documents {\n    // Match the user document\n    match /users/{userId}/{document=**} {\n      // Allow the user to read/write their own documents at any depth\n      allow read, write: if request.auth != null && request.auth.uid == userId;\n    }\n    \n    // Match the games collection\n    match /games/{gameId} {\n      // Allows all users to create and delete games\n      allow read, create, update: if request.auth != null;\n      allow delete: if request.auth != null && exists(/databases/$(database)/documents/games/$(gameId)/players/$(request.auth.uid));\n      }\n    \n    // Match the games/{gameId}/players collection\n    // allows all users to add themselves to the game\n    match /games/{gameId}/players/{playerId} {\n      // Allow authenticated users to write\n      allow read, create, update: if request.auth != null;\n      allow delete: if request.auth.uid == playerId;\n      }\n\n  }\n}"}]}}
+[debug] [2024-06-19T03:42:25.866Z] <<< [apiv2][status] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules 200
+[debug] [2024-06-19T03:42:25.866Z] <<< [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {}
+[info] ✔  firestore: Rules updated. 
+[info] i  firestore: Change detected, updating rules... 
+[debug] [2024-06-19T03:42:30.090Z] >>> [apiv2][query] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules [none]
+[debug] [2024-06-19T03:42:30.090Z] >>> [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {"ignore_errors":true,"rules":{"files":[{"name":"security.rules","content":"rules_version = '2';\nservice cloud.firestore {\n  match /databases/{database}/documents {\n    // Match the user document\n    match /users/{userId}/{document=**} {\n      // Allow the user to read/write their own documents at any depth\n      allow read, write: if request.auth != null && request.auth.uid == userId;\n    }\n    \n    // Match the games collection\n    match /games/{gameId} {\n      // Allows all users to create,  and delete games\n      allow read, create, update: if request.auth != null;\n      allow delete: if request.auth != null && exists(/databases/$(database)/documents/games/$(gameId)/players/$(request.auth.uid));\n      }\n    \n    // Match the games/{gameId}/players collection\n    // allows all users to add themselves to the game\n    match /games/{gameId}/players/{playerId} {\n      // Allow authenticated users to write\n      allow read, create, update: if request.auth != null;\n      allow delete: if request.auth.uid == playerId;\n      }\n\n  }\n}"}]}}
+[debug] [2024-06-19T03:42:30.111Z] <<< [apiv2][status] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules 200
+[debug] [2024-06-19T03:42:30.111Z] <<< [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {}
+[info] ✔  firestore: Rules updated. 
+[info] i  firestore: Change detected, updating rules... 
+[debug] [2024-06-19T03:42:32.700Z] >>> [apiv2][query] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules [none]
+[debug] [2024-06-19T03:42:32.700Z] >>> [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {"ignore_errors":true,"rules":{"files":[{"name":"security.rules","content":"rules_version = '2';\nservice cloud.firestore {\n  match /databases/{database}/documents {\n    // Match the user document\n    match /users/{userId}/{document=**} {\n      // Allow the user to read/write their own documents at any depth\n      allow read, write: if request.auth != null && request.auth.uid == userId;\n    }\n    \n    // Match the games collection\n    match /games/{gameId} {\n      // Allows all users to crea and delete games\n      allow read, create, update: if request.auth != null;\n      allow delete: if request.auth != null && exists(/databases/$(database)/documents/games/$(gameId)/players/$(request.auth.uid));\n      }\n    \n    // Match the games/{gameId}/players collection\n    // allows all users to add themselves to the game\n    match /games/{gameId}/players/{playerId} {\n      // Allow authenticated users to write\n      allow read, create, update: if request.auth != null;\n      allow delete: if request.auth.uid == playerId;\n      }\n\n  }\n}"}]}}
+[debug] [2024-06-19T03:42:32.719Z] <<< [apiv2][status] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules 200
+[debug] [2024-06-19T03:42:32.719Z] <<< [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {}
+[info] ✔  firestore: Rules updated. 
+[info] i  firestore: Change detected, updating rules... 
+[debug] [2024-06-19T03:42:41.841Z] >>> [apiv2][query] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules [none]
+[debug] [2024-06-19T03:42:41.841Z] >>> [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {"ignore_errors":true,"rules":{"files":[{"name":"security.rules","content":"rules_version = '2';\nservice cloud.firestore {\n  match /databases/{database}/documents {\n    // Match the user document\n    match /users/{userId}/{document=**} {\n      // Allow the user to read/write their own documents at any depth\n      allow read, write: if request.auth != null && request.auth.uid == userId;\n    }\n    \n    // Match the games collection\n    match /games/{gameId} {\n      // Allows all users to read, create, and modify and delete games\n      allow read, create, update: if request.auth != null;\n      allow delete: if request.auth != null && exists(/databases/$(database)/documents/games/$(gameId)/players/$(request.auth.uid));\n      }\n    \n    // Match the games/{gameId}/players collection\n    // allows all users to add themselves to the game\n    match /games/{gameId}/players/{playerId} {\n      // Allow authenticated users to write\n      allow read, create, update: if request.auth != null;\n      allow delete: if request.auth.uid == playerId;\n      }\n\n  }\n}"}]}}
+[debug] [2024-06-19T03:42:41.844Z] Jun 19, 2024 3:42:41 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jun 19, 2024 3:42:41 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2024-06-19T03:42:41.864Z] <<< [apiv2][status] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules 200
+[debug] [2024-06-19T03:42:41.864Z] <<< [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {}
+[info] ✔  firestore: Rules updated. 
+[info] i  firestore: Change detected, updating rules... 
+[debug] [2024-06-19T03:42:46.768Z] >>> [apiv2][query] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules [none]
+[debug] [2024-06-19T03:42:46.768Z] >>> [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {"ignore_errors":true,"rules":{"files":[{"name":"security.rules","content":"rules_version = '2';\nservice cloud.firestore {\n  match /databases/{database}/documents {\n    // Match the user document\n    match /users/{userId}/{document=**} {\n      // Allow the user to read/write their own documents at any depth\n      allow read, write: if request.auth != null && request.auth.uid == userId;\n    }\n    \n    // Match the games collection\n    match /games/{gameId} {\n      // Allows all users to read, create, and modify games\n      allow read, create, update: if request.auth != null;\n      allow delete: if request.auth != null && exists(/databases/$(database)/documents/games/$(gameId)/players/$(request.auth.uid));\n      }\n    \n    // Match the games/{gameId}/players collection\n    // allows all users to add themselves to the game\n    match /games/{gameId}/players/{playerId} {\n      // Allow authenticated users to write\n      allow read, create, update: if request.auth != null;\n      allow delete: if request.auth.uid == playerId;\n      }\n\n  }\n}"}]}}
+[debug] [2024-06-19T03:42:46.780Z] <<< [apiv2][status] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules 200
+[debug] [2024-06-19T03:42:46.780Z] <<< [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {}
+[info] ✔  firestore: Rules updated. 
+[info] i  firestore: Change detected, updating rules... 
+[debug] [2024-06-19T03:42:53.620Z] >>> [apiv2][query] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules [none]
+[debug] [2024-06-19T03:42:53.620Z] >>> [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {"ignore_errors":true,"rules":{"files":[{"name":"security.rules","content":"rules_version = '2';\nservice cloud.firestore {\n  match /databases/{database}/documents {\n    // Match the user document\n    match /users/{userId}/{document=**} {\n      // Allow the user to read/write their own documents at any depth\n      allow read, write: if request.auth != null && request.auth.uid == userId;\n    }\n    \n    // Match the games collection\n    match /games/{gameId} {\n      // Allows all users to read, create, and modify games\n      allow read, create, update: if request.auth != null;\n      \n      allow delete: if request.auth != null && exists(/databases/$(database)/documents/games/$(gameId)/players/$(request.auth.uid));\n      }\n    \n    // Match the games/{gameId}/players collection\n    // allows all users to add themselves to the game\n    match /games/{gameId}/players/{playerId} {\n      // Allow authenticated users to write\n      allow read, create, update: if request.auth != null;\n      allow delete: if request.auth.uid == playerId;\n      }\n\n  }\n}"}]}}
+[debug] [2024-06-19T03:42:53.623Z] Jun 19, 2024 3:42:53 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jun 19, 2024 3:42:53 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2024-06-19T03:42:53.642Z] <<< [apiv2][status] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules 200
+[debug] [2024-06-19T03:42:53.643Z] <<< [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {}
+[info] ✔  firestore: Rules updated. 
+[info] i  firestore: Change detected, updating rules... 
+[debug] [2024-06-19T03:42:55.208Z] >>> [apiv2][query] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules [none]
+[debug] [2024-06-19T03:42:55.208Z] >>> [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {"ignore_errors":true,"rules":{"files":[{"name":"security.rules","content":"rules_version = '2';\nservice cloud.firestore {\n  match /databases/{database}/documents {\n    // Match the user document\n    match /users/{userId}/{document=**} {\n      // Allow the user to read/write their own documents at any depth\n      allow read, write: if request.auth != null && request.auth.uid == userId;\n    }\n    \n    // Match the games collection\n    match /games/{gameId} {\n      // Allows all users to read, create, and modify games\n      allow read, create, update: if request.auth != null;\n      // \n      allow delete: if request.auth != null && exists(/databases/$(database)/documents/games/$(gameId)/players/$(request.auth.uid));\n      }\n    \n    // Match the games/{gameId}/players collection\n    // allows all users to add themselves to the game\n    match /games/{gameId}/players/{playerId} {\n      // Allow authenticated users to write\n      allow read, create, update: if request.auth != null;\n      allow delete: if request.auth.uid == playerId;\n      }\n\n  }\n}"}]}}
+[debug] [2024-06-19T03:42:55.224Z] <<< [apiv2][status] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules 200
+[debug] [2024-06-19T03:42:55.225Z] <<< [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {}
+[info] ✔  firestore: Rules updated. 
+[info] i  firestore: Change detected, updating rules... 
+[debug] [2024-06-19T03:42:58.399Z] >>> [apiv2][query] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules [none]
+[debug] [2024-06-19T03:42:58.399Z] >>> [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {"ignore_errors":true,"rules":{"files":[{"name":"security.rules","content":"rules_version = '2';\nservice cloud.firestore {\n  match /databases/{database}/documents {\n    // Match the user document\n    match /users/{userId}/{document=**} {\n      // Allow the user to read/write their own documents at any depth\n      allow read, write: if request.auth != null && request.auth.uid == userId;\n    }\n    \n    // Match the games collection\n    match /games/{gameId} {\n      // Allows all users to read, create, and modify games\n      allow read, create, update: if request.auth != null;\n      // User \n      allow delete: if request.auth != null && exists(/databases/$(database)/documents/games/$(gameId)/players/$(request.auth.uid));\n      }\n    \n    // Match the games/{gameId}/players collection\n    // allows all users to add themselves to the game\n    match /games/{gameId}/players/{playerId} {\n      // Allow authenticated users to write\n      allow read, create, update: if request.auth != null;\n      allow delete: if request.auth.uid == playerId;\n      }\n\n  }\n}"}]}}
+[debug] [2024-06-19T03:42:58.420Z] <<< [apiv2][status] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules 200
+[debug] [2024-06-19T03:42:58.420Z] <<< [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {}
+[info] ✔  firestore: Rules updated. 
+[info] i  firestore: Change detected, updating rules... 
+[debug] [2024-06-19T03:43:01.285Z] >>> [apiv2][query] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules [none]
+[debug] [2024-06-19T03:43:01.286Z] >>> [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {"ignore_errors":true,"rules":{"files":[{"name":"security.rules","content":"rules_version = '2';\nservice cloud.firestore {\n  match /databases/{database}/documents {\n    // Match the user document\n    match /users/{userId}/{document=**} {\n      // Allow the user to read/write their own documents at any depth\n      allow read, write: if request.auth != null && request.auth.uid == userId;\n    }\n    \n    // Match the games collection\n    match /games/{gameId} {\n      // Allows all users to read, create, and modify games\n      allow read, create, update: if request.auth != null;\n      // User must be in the players collection to delete the game\n      allow delete: if request.auth != null && exists(/databases/$(database)/documents/games/$(gameId)/players/$(request.auth.uid));\n      }\n    \n    // Match the games/{gameId}/players collection\n    // allows all users to add themselves to the game\n    match /games/{gameId}/players/{playerId} {\n      // Allow authenticated users to write\n      allow read, create, update: if request.auth != null;\n      allow delete: if request.auth.uid == playerId;\n      }\n\n  }\n}"}]}}
+[debug] [2024-06-19T03:43:01.305Z] <<< [apiv2][status] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules 200
+[debug] [2024-06-19T03:43:01.306Z] <<< [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {}
+[info] ✔  firestore: Rules updated. 
+[info] i  firestore: Change detected, updating rules... 
+[debug] [2024-06-19T03:43:10.241Z] >>> [apiv2][query] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules [none]
+[debug] [2024-06-19T03:43:10.241Z] >>> [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {"ignore_errors":true,"rules":{"files":[{"name":"security.rules","content":"rules_version = '2';\nservice cloud.firestore {\n  match /databases/{database}/documents {\n    // Match the user document\n    match /users/{userId}/{document=**} {\n      // Allow the user to read/write their own documents at any depth\n      allow read, write: if request.auth != null && request.auth.uid == userId;\n    }\n    \n    // Match the games collection\n    match /games/{gameId} {\n      // Allows all users to read, create, and modify games\n      allow read, create, update: if request.auth != null;\n      // User must be in the players collection to delete the game\n      allow delete: if request.auth != null && exists(/databases/$(database)/documents/games/$(gameId)/players/$(request.auth.uid));\n      }\n    \n    // Match the games/{gameId}/players collection\n    match /games/{gameId}/players/{playerId} {\n      // Allow authenticated users to write\n      allow read, create, update: if request.auth != null;\n      allow delete: if request.auth.uid == playerId;\n      }\n\n  }\n}"}]}}
+[debug] [2024-06-19T03:43:10.243Z] Jun 19, 2024 3:43:10 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jun 19, 2024 3:43:10 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2024-06-19T03:43:10.268Z] <<< [apiv2][status] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules 200
+[debug] [2024-06-19T03:43:10.268Z] <<< [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {}
+[info] ✔  firestore: Rules updated. 
+[info] i  firestore: Change detected, updating rules... 
+[debug] [2024-06-19T03:43:15.512Z] >>> [apiv2][query] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules [none]
+[debug] [2024-06-19T03:43:15.512Z] >>> [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {"ignore_errors":true,"rules":{"files":[{"name":"security.rules","content":"rules_version = '2';\nservice cloud.firestore {\n  match /databases/{database}/documents {\n    // Match the user document\n    match /users/{userId}/{document=**} {\n      // Allow the user to read/write their own documents at any depth\n      allow read, write: if request.auth != null && request.auth.uid == userId;\n    }\n    \n    // Match the games collection\n    match /games/{gameId} {\n      // Allows all users to read, create, and modify games\n      allow read, create, update: if request.auth != null;\n      // User must be in the players collection to delete the game\n      allow delete: if request.auth != null && exists(/databases/$(database)/documents/games/$(gameId)/players/$(request.auth.uid));\n      }\n    \n    // Match the games/{gameId}/players collection\n    match /games/{gameId}/players/{playerId} {\n      //\n      allow read, create, update: if request.auth != null;\n      allow delete: if request.auth.uid == playerId;\n      }\n\n  }\n}"}]}}
+[debug] [2024-06-19T03:43:15.515Z] Jun 19, 2024 3:43:15 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jun 19, 2024 3:43:15 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2024-06-19T03:43:15.535Z] <<< [apiv2][status] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules 200
+[debug] [2024-06-19T03:43:15.535Z] <<< [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {}
+[info] ✔  firestore: Rules updated. 
+[info] i  firestore: Change detected, updating rules... 
+[debug] [2024-06-19T03:43:23.006Z] >>> [apiv2][query] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules [none]
+[debug] [2024-06-19T03:43:23.006Z] >>> [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {"ignore_errors":true,"rules":{"files":[{"name":"security.rules","content":"rules_version = '2';\nservice cloud.firestore {\n  match /databases/{database}/documents {\n    // Match the user document\n    match /users/{userId}/{document=**} {\n      // Allow the user to read/write their own documents at any depth\n      allow read, write: if request.auth != null && request.auth.uid == userId;\n    }\n    \n    // Match the games collection\n    match /games/{gameId} {\n      // Allows all users to read, create, and modify games\n      allow read, create, update: if request.auth != null;\n      // User must be in the players collection to delete the game\n      allow delete: if request.auth != null && exists(/databases/$(database)/documents/games/$(gameId)/players/$(request.auth.uid));\n      }\n    \n    // Match the games/{gameId}/players collection\n    match /games/{gameId}/players/{playerId} {\n      // \n      allow read, create, update: if request.auth != null;\n      allow delete: if request.auth.uid == playerId;\n      }\n\n  }\n}"}]}}
+[debug] [2024-06-19T03:43:23.009Z] Jun 19, 2024 3:43:23 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jun 19, 2024 3:43:23 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2024-06-19T03:43:23.023Z] <<< [apiv2][status] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules 200
+[debug] [2024-06-19T03:43:23.024Z] <<< [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {}
+[info] ✔  firestore: Rules updated. 
+[info] i  firestore: Change detected, updating rules... 
+[debug] [2024-06-19T03:43:24.784Z] >>> [apiv2][query] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules [none]
+[debug] [2024-06-19T03:43:24.785Z] >>> [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {"ignore_errors":true,"rules":{"files":[{"name":"security.rules","content":"rules_version = '2';\nservice cloud.firestore {\n  match /databases/{database}/documents {\n    // Match the user document\n    match /users/{userId}/{document=**} {\n      // Allow the user to read/write their own documents at any depth\n      allow read, write: if request.auth != null && request.auth.uid == userId;\n    }\n    \n    // Match the games collection\n    match /games/{gameId} {\n      // Allows all users to read, create, and modify games\n      allow read, create, update: if request.auth != null;\n      // User must be in the players collection to delete the game\n      allow delete: if request.auth != null && exists(/databases/$(database)/documents/games/$(gameId)/players/$(request.auth.uid));\n      }\n    \n    // Match the games/{gameId}/players collection\n    match /games/{gameId}/players/{playerId} {\n      // Allow the user to read/write their own documents at any depth\n      allow read, create, update: if request.auth != null;\n      allow delete: if request.auth.uid == playerId;\n      }\n\n  }\n}"}]}}
+[debug] [2024-06-19T03:43:24.796Z] <<< [apiv2][status] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules 200
+[debug] [2024-06-19T03:43:24.796Z] <<< [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {}
+[info] ✔  firestore: Rules updated. 
+[info] i  firestore: Change detected, updating rules... 
+[debug] [2024-06-19T03:43:31.414Z] >>> [apiv2][query] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules [none]
+[debug] [2024-06-19T03:43:31.414Z] >>> [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {"ignore_errors":true,"rules":{"files":[{"name":"security.rules","content":"rules_version = '2';\nservice cloud.firestore {\n  match /databases/{database}/documents {\n    // Match the user document\n    match /users/{userId}/{document=**} {\n      // Allow the user to read/write their own documents at any depth\n      allow read, write: if request.auth != null && request.auth.uid == userId;\n    }\n    \n    // Match the games collection\n    match /games/{gameId} {\n      // Allows all users to read, create, and modify games\n      allow read, create, update: if request.auth != null;\n      // User must be in the players collection to delete the game\n      allow delete: if request.auth != null && exists(/databases/$(database)/documents/games/$(gameId)/players/$(request.auth.uid));\n      }\n    \n    // Match the games/{gameId}/players collection\n    match /games/{gameId}/players/{playerId} {\n      // Allows all users to read, create, and modify games\n      allow read, create, update: if request.auth != null;\n      allow delete: if request.auth.uid == playerId;\n      }\n\n  }\n}"}]}}
+[debug] [2024-06-19T03:43:31.416Z] Jun 19, 2024 3:43:31 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jun 19, 2024 3:43:31 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2024-06-19T03:43:31.425Z] <<< [apiv2][status] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules 200
+[debug] [2024-06-19T03:43:31.425Z] <<< [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {}
+[info] ✔  firestore: Rules updated. 
+[info] i  firestore: Change detected, updating rules... 
+[debug] [2024-06-19T03:43:35.069Z] >>> [apiv2][query] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules [none]
+[debug] [2024-06-19T03:43:35.069Z] >>> [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {"ignore_errors":true,"rules":{"files":[{"name":"security.rules","content":"rules_version = '2';\nservice cloud.firestore {\n  match /databases/{database}/documents {\n    // Match the user document\n    match /users/{userId}/{document=**} {\n      // Allow the user to read/write their own documents at any depth\n      allow read, write: if request.auth != null && request.auth.uid == userId;\n    }\n    \n    // Match the games collection\n    match /games/{gameId} {\n      // Allows all users to read, create, and modify games\n      allow read, create, update: if request.auth != null;\n      // User must be in the players collection to delete the game\n      allow delete: if request.auth != null && exists(/databases/$(database)/documents/games/$(gameId)/players/$(request.auth.uid));\n      }\n    \n    // Match the games/{gameId}/players collection\n    match /games/{gameId}/players/{playerId} {\n      // Allows all users \n      allow read, create, update: if request.auth != null;\n      allow delete: if request.auth.uid == playerId;\n      }\n\n  }\n}"}]}}
+[debug] [2024-06-19T03:43:35.084Z] <<< [apiv2][status] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules 200
+[debug] [2024-06-19T03:43:35.085Z] <<< [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {}
+[info] ✔  firestore: Rules updated. 
+[info] i  firestore: Change detected, updating rules... 
+[debug] [2024-06-19T03:43:38.625Z] >>> [apiv2][query] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules [none]
+[debug] [2024-06-19T03:43:38.625Z] >>> [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {"ignore_errors":true,"rules":{"files":[{"name":"security.rules","content":"rules_version = '2';\nservice cloud.firestore {\n  match /databases/{database}/documents {\n    // Match the user document\n    match /users/{userId}/{document=**} {\n      // Allow the user to read/write their own documents at any depth\n      allow read, write: if request.auth != null && request.auth.uid == userId;\n    }\n    \n    // Match the games collection\n    match /games/{gameId} {\n      // Allows all users to read, create, and modify games\n      allow read, create, update: if request.auth != null;\n      // User must be in the players collection to delete the game\n      allow delete: if request.auth != null && exists(/databases/$(database)/documents/games/$(gameId)/players/$(request.auth.uid));\n      }\n    \n    // Match the games/{gameId}/players collection\n    match /games/{gameId}/players/{playerId} {\n      // Allows all users to read, create, and modify players\n      allow read, create, update: if request.auth != null;\n      allow delete: if request.auth.uid == playerId;\n      }\n\n  }\n}"}]}}
+[debug] [2024-06-19T03:43:38.634Z] <<< [apiv2][status] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules 200
+[debug] [2024-06-19T03:43:38.634Z] <<< [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {}
+[info] ✔  firestore: Rules updated. 
+[info] i  firestore: Change detected, updating rules... 
+[debug] [2024-06-19T03:43:41.219Z] >>> [apiv2][query] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules [none]
+[debug] [2024-06-19T03:43:41.219Z] >>> [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {"ignore_errors":true,"rules":{"files":[{"name":"security.rules","content":"rules_version = '2';\nservice cloud.firestore {\n  match /databases/{database}/documents {\n    // Match the user document\n    match /users/{userId}/{document=**} {\n      // Allow the user to read/write their own documents at any depth\n      allow read, write: if request.auth != null && request.auth.uid == userId;\n    }\n    \n    // Match the games collection\n    match /games/{gameId} {\n      // Allows all users to read, create, and modify games\n      allow read, create, update: if request.auth != null;\n      // User must be in the players collection to delete the game\n      allow delete: if request.auth != null && exists(/databases/$(database)/documents/games/$(gameId)/players/$(request.auth.uid));\n      }\n    \n    // Match the games/{gameId}/players collection\n    match /games/{gameId}/players/{playerId} {\n      // Allows all users to read, create, and modify players for a\n      allow read, create, update: if request.auth != null;\n      allow delete: if request.auth.uid == playerId;\n      }\n\n  }\n}"}]}}
+[debug] [2024-06-19T03:43:41.235Z] <<< [apiv2][status] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules 200
+[debug] [2024-06-19T03:43:41.236Z] <<< [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {}
+[info] ✔  firestore: Rules updated. 
+[info] i  firestore: Change detected, updating rules... 
+[debug] [2024-06-19T03:43:43.532Z] >>> [apiv2][query] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules [none]
+[debug] [2024-06-19T03:43:43.532Z] >>> [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {"ignore_errors":true,"rules":{"files":[{"name":"security.rules","content":"rules_version = '2';\nservice cloud.firestore {\n  match /databases/{database}/documents {\n    // Match the user document\n    match /users/{userId}/{document=**} {\n      // Allow the user to read/write their own documents at any depth\n      allow read, write: if request.auth != null && request.auth.uid == userId;\n    }\n    \n    // Match the games collection\n    match /games/{gameId} {\n      // Allows all users to read, create, and modify games\n      allow read, create, update: if request.auth != null;\n      // User must be in the players collection to delete the game\n      allow delete: if request.auth != null && exists(/databases/$(database)/documents/games/$(gameId)/players/$(request.auth.uid));\n      }\n    \n    // Match the games/{gameId}/players collection\n    match /games/{gameId}/players/{playerId} {\n      // Allows all users to read, create, and modify players for a \n      allow read, create, update: if request.auth != null;\n      allow delete: if request.auth.uid == playerId;\n      }\n\n  }\n}"}]}}
+[debug] [2024-06-19T03:43:43.549Z] <<< [apiv2][status] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules 200
+[debug] [2024-06-19T03:43:43.549Z] <<< [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {}
+[info] ✔  firestore: Rules updated. 
+[info] i  firestore: Change detected, updating rules... 
+[debug] [2024-06-19T03:43:45.912Z] >>> [apiv2][query] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules [none]
+[debug] [2024-06-19T03:43:45.912Z] >>> [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {"ignore_errors":true,"rules":{"files":[{"name":"security.rules","content":"rules_version = '2';\nservice cloud.firestore {\n  match /databases/{database}/documents {\n    // Match the user document\n    match /users/{userId}/{document=**} {\n      // Allow the user to read/write their own documents at any depth\n      allow read, write: if request.auth != null && request.auth.uid == userId;\n    }\n    \n    // Match the games collection\n    match /games/{gameId} {\n      // Allows all users to read, create, and modify games\n      allow read, create, update: if request.auth != null;\n      // User must be in the players collection to delete the game\n      allow delete: if request.auth != null && exists(/databases/$(database)/documents/games/$(gameId)/players/$(request.auth.uid));\n      }\n    \n    // Match the games/{gameId}/players collection\n    match /games/{gameId}/players/{playerId} {\n      // Allows all users to read, create, and modify players for a game\n      allow read, create, update: if request.auth != null;\n      allow delete: if request.auth.uid == playerId;\n      }\n\n  }\n}"}]}}
+[debug] [2024-06-19T03:43:45.921Z] <<< [apiv2][status] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules 200
+[debug] [2024-06-19T03:43:45.922Z] <<< [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {}
+[info] ✔  firestore: Rules updated. 
+[info] i  firestore: Change detected, updating rules... 
+[debug] [2024-06-19T03:43:48.391Z] >>> [apiv2][query] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules [none]
+[debug] [2024-06-19T03:43:48.391Z] >>> [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {"ignore_errors":true,"rules":{"files":[{"name":"security.rules","content":"rules_version = '2';\nservice cloud.firestore {\n  match /databases/{database}/documents {\n    // Match the user document\n    match /users/{userId}/{document=**} {\n      // Allow the user to read/write their own documents at any depth\n      allow read, write: if request.auth != null && request.auth.uid == userId;\n    }\n    \n    // Match the games collection\n    match /games/{gameId} {\n      // Allows all users to read, create, and modify games\n      allow read, create, update: if request.auth != null;\n      // User must be in the players collection to delete the game\n      allow delete: if request.auth != null && exists(/databases/$(database)/documents/games/$(gameId)/players/$(request.auth.uid));\n      }\n    \n    // Match the games/{gameId}/players collection\n    match /games/{gameId}/players/{playerId} {\n      // Allows all users to read, create, and modify players for a game\n      allow read, create, update: if request.auth != null;\n      //\n      allow delete: if request.auth.uid == playerId;\n      }\n\n  }\n}"}]}}
+[debug] [2024-06-19T03:43:48.408Z] <<< [apiv2][status] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules 200
+[debug] [2024-06-19T03:43:48.408Z] <<< [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {}
+[info] ✔  firestore: Rules updated. 
+[info] i  firestore: Change detected, updating rules... 
+[debug] [2024-06-19T03:43:49.873Z] >>> [apiv2][query] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules [none]
+[debug] [2024-06-19T03:43:49.873Z] >>> [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {"ignore_errors":true,"rules":{"files":[{"name":"security.rules","content":"rules_version = '2';\nservice cloud.firestore {\n  match /databases/{database}/documents {\n    // Match the user document\n    match /users/{userId}/{document=**} {\n      // Allow the user to read/write their own documents at any depth\n      allow read, write: if request.auth != null && request.auth.uid == userId;\n    }\n    \n    // Match the games collection\n    match /games/{gameId} {\n      // Allows all users to read, create, and modify games\n      allow read, create, update: if request.auth != null;\n      // User must be in the players collection to delete the game\n      allow delete: if request.auth != null && exists(/databases/$(database)/documents/games/$(gameId)/players/$(request.auth.uid));\n      }\n    \n    // Match the games/{gameId}/players collection\n    match /games/{gameId}/players/{playerId} {\n      // Allows all users to read, create, and modify players for a game\n      allow read, create, update: if request.auth != null;\n      // User must be the player to delete themselves from the game\n      allow delete: if request.auth.uid == playerId;\n      }\n\n  }\n}"}]}}
+[debug] [2024-06-19T03:43:49.891Z] <<< [apiv2][status] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules 200
+[debug] [2024-06-19T03:43:49.891Z] <<< [apiv2][body] PUT http://127.0.0.1:8080/emulator/v1/projects/veryfunpokergame:securityRules {}
+[info] ✔  firestore: Rules updated. 
