@@ -45,7 +45,7 @@ describe('GamesCard component', () => {
             handleSnapshot({ docs: mockSubscriptionData });
         });
 
-        // Render the TodoList component
+        // Render the GamesCard component
         const { getByText} = render(<MemoryRouter><GamesCard /></MemoryRouter>);
 
         // Wait for the component to render
