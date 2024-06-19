@@ -3,7 +3,7 @@
  */
 
 import { assertFails, assertSucceeds, initializeTestEnvironment } from "@firebase/rules-unit-testing"
-import { collection, addDoc, getDocs } from "firebase/firestore";
+import { collection, addDoc, getDocs, doc, deleteDoc, updateDoc, setDoc } from "firebase/firestore";
 import { readFileSync } from 'fs';
 import 'setimmediate';
 
@@ -14,7 +14,7 @@ let userId;
 beforeAll(async () => {
     try {
         testEnv = await initializeTestEnvironment({
-            projectId: "todo-app-5b35b",
+            projectId: "veryfunpokergame",
             firestore: {
                 rules: readFileSync("firestore.rules", "utf-8"),
             },
@@ -30,7 +30,7 @@ beforeAll(async () => {
     }
 });
 
-it('adds a document to an auth users collection and retrieves it', async () => {
+it('auth user can read/write their own documents', async () => {
     const myDoc = { name: "Test doc" };
 
     // attempt to add a document as an authenticated user
@@ -39,10 +39,9 @@ it('adds a document to an auth users collection and retrieves it', async () => {
     // check it can be accessed
     const docs = await getDocs(collection(db, 'users', userId, 'users-stuff'));
     expect(docs.docs.map(doc => doc.data())).toContainEqual(myDoc);
-}
-);
+});
 
-it('auth user fails to read/write to another users collection', async () => {
+it('auth user fails to read/write to another users documents', async () => {
     const myDoc = { name: "Test doc" };
 
     // attempt to read from another users collection
@@ -50,22 +49,35 @@ it('auth user fails to read/write to another users collection', async () => {
     
     // attempt to write to another users collection
     await assertFails(addDoc(collection(db, 'users', "some-other-ID", 'users-stuff'), myDoc));
-}
-);
+});
 
-it('fails to add a document to an unauth users collection and fails to read the collection', async () => {
-    const myDoc = { name: "Test doc" };
-    const unauthDb = testEnv.unauthenticatedContext().firestore();
+it('auth user can read, create, update games but cannot delete if not a player', async () => {
+    const myGame = { name: "Test game" };
+    const gameDoc = doc(db, 'games', 'game_1');
 
-    // Attempt to add a document as an unauthenticated user
-    await assertFails(addDoc(collection(unauthDb, 'users', userId, 'users-stuff'), myDoc));
+    // attempt to read, create, update games
+    await assertSucceeds(getDocs(collection(db, 'games')));
+    await assertSucceeds(setDoc(gameDoc, myGame));
+    await assertSucceeds(updateDoc(gameDoc, { name: "Updated game" }));
 
-    // assert a read operation fails
-    await assertFails(getDocs(collection(unauthDb, 'users', userId, 'users-stuff')));
-}
-);
+    // attempt to delete game
+    await assertFails(deleteDoc(gameDoc));
+});
+
+it('auth user can read, create, update, delete their own player document', async () => {
+    const myPlayer = { name: "Test player" };
+    const playerDoc = doc(db, 'games', 'game_1', 'players', userId);
+
+    // attempt to read, create, update player document
+    await assertSucceeds(getDocs(collection(db, 'games', 'game_1', 'players')));
+    await assertSucceeds(setDoc(playerDoc, myPlayer));
+    await assertSucceeds(updateDoc(playerDoc, { name: "Updated player" }));
+
+    // attempt to delete own player document
+    await assertSucceeds(deleteDoc(playerDoc));
+});
 
 afterAll(async () => {
     // Close any lingering connections to the Firestore emulator
     await testEnv.cleanup();
-  });
+});

@@ -36,10 +36,12 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --verbose --coverage --watchAll=false --testPathIgnorePatterns=firestore --testNamePattern=",
-    "test:rules": "npm run test -- rules",
+    "test:rules": "firebase emulators:exec --only firestore 'react-scripts test --verbose --coverage --watchAll=false --testNamePattern= rules'",
     "eject": "react-scripts eject",
     "seed": "node seed/seed.js",
-    "deploy": "npm run build && firebase deploy"
+    "deploy": "npm run build && firebase deploy",
+    "emulators": "firebase emulators:start",
+    "emulators:stop": "firebase emulators:stop"
   },
   "eslintConfig": {
     "extends": [
